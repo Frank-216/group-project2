@@ -1,0 +1,30 @@
+{
+  "name": "eatdapizza",
+  "version": "1.0.0",
+  "description": "this is a pizza logger with MySQl, Node, Express, handlebars and orm",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "chen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcdantechen/EatDaPizza.git"
+  },
+  "keywords": [
+    "eatdapizza"
+  ],
+  "author": "Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcdantechen/EatDaPizza/issues"
+  },
+  "homepage": "https://github.com/lcdantechen/EatDaPizza#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.6",
+    "mysql": "^2.11.1"
+  }
+}

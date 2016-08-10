@@ -1,0 +1,104 @@
+
+
+<div class="icon">
+  <div class="pizza">
+    <div class="crust">
+    </div>
+    <div class="cheese">
+    </div>
+    <div class="pepperoni one">
+    </div>
+    <div class="pepperoni two">
+    </div>
+    <div class="pepperoni three">
+    </div>
+  </div>
+</div>
+<h1 class="text-center">Pizza</h1>
+
+<!-- <div class="container">
+  
+  <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+  </div>
+</div> -->
+
+<div class="box leftBox text-center">
+  
+    <h2>Your Pizza List!</h2>
+
+    <ol>
+      {{#each pizza}}
+        {{#unless this.devoured}}
+          <li>
+         
+            {{this.pizza_name}}
+       
+
+            <form action="pizza/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="true">
+              <button type="submit" class=" btn btn-warning">Devour it!</button>
+            </form>
+
+
+
+            <form action="pizza/delete/{{this.id}}?_method=DELETE" method="POST">
+              <!-- option 2, pass in the id of the cat inside the form - you would access this in the route using req.body.id not req.params.id -->
+              <input type="hidden" name="id" value="{{this.id}}">
+              <button type="submit" class=" btn btn-danger">DELETE!</button>
+            </form>
+
+
+
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ol>
+
+</div>
+
+<div class="box rightBox text-center">
+<h2>Dig in!</h2>
+
+    <ol>
+      {{#each pizza}}
+        {{#if this.devoured}}
+          <li>
+            
+            {{this.pizza_name}}
+    
+
+            <form action="pizza/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="false">
+              <button type="submit" class=" btn btn-success">Finish Later!</button>
+            </form>
+          </li>
+        {{/if}}
+      {{/each}}
+    </ol>
+
+</div>
+
+<div class="addPizza text-center">
+    <h2>Add a Pizza</h2>
+    <form class="create-update-form" action="pizza/create" method="POST">
+
+      <div class="form-group">
+        <label for="ca">Pizza Name:</label>
+        <input type="text" id="ca" name="pizza_name">
+      </div>
+      <div class="form-group">
+        
+        <input type="hidden" name="devoured" value="0" >
+        
+      </div>
+      <!-- <div class="form-group">
+        <label for="slee">Devoured?</label><br>
+        <input type="radio" name="devoured" value="1" checked> Devoured<br>
+        <input type="radio" name="devoured" value="0"> Undevoured!
+      </div> -->
+
+      <button type="submit" class=" btn btnRed">Add Your Pizza</button>
+    </form>
+</div>
