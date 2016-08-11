@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Wanderers Essentials</title>
+    <!-- essential responsive tags -->
+    <link rel="icon" href="http://www.clker.com/cliparts/a/3/0/b/12065718081356232646johnny_automatic_NPS_map_pictographs_part_95.svg.med.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <!-- bootstrap, font awesome, googlefonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-Xqcy5ttufkC3rBa8EdiAyA1VgOGrmel2Y+wxm4K3kI3fcjTWlDWrlnxyD6hOi3PF" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+    <!-- jquery, bootstrap js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <!-- public files -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+    <script type="text/javascript">
+    </script>
+    <div class="container">
+        <!-- header -->
+        <br>
+        <div class="header row">
+            <div class="col-md-3 col-md-offset-1 topLinks">
+                <a href="/signin"> 
+                    SIGN IN <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-md-4  text-center">
+                <img src="/img/logo.png" class="logo">
+            </div>
+            <div class="col-md-3 tag text-right topLinks">
+                <a href="/cart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> CART
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 links img-rounded text-center">
+                <a href="/products"> PRODUCTS</a>
+                <a href="/about"> ABOUT </a>
+                <a href="/contact"> CONTACT</a>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="row content">
+            {{{ body }}}
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 footer">
+                <div class="col-md-3 col-md-offset-1">
+                    <h5>QUICK LINKS</h5>
+                    <a href="/search">Search</a>
+                    <br>
+                    <a href="/about">About</a>
+                    <br>
+                    <a href="/contact">Contact</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <h5>GET CONNECTED</h5>
+                    <a href="https://www.facebook.com/TheWanderersEssentials/" target="_blank">
+                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-32.png"></a>
+                    <!--          <a href="#" target="_blank">
+                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/twitter_online_social_media-32.png"></a> -->
+                    <a href="https://www.instagram.com/evan_edward_austin/" target="_blank">
+                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media_photo-32.png"></a>
+                    <a href="#" target="_blank">
+                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_pinterest-32.png"></a>
+                    <a href="https://www.etsy.com/shop/WanderersEssentials" target="_blank">
+                        <img src="https://cdn1.iconfinder.com/data/icons/black-white-social-media/32/etsy_social_media_logo-32.png"></a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <h5>LOCATION</h5> Oxford, NJ 07863
+                    <br> (908) 307-4143
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-6">
+                    <h6>RCB 2016</h6>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>
+                    <i class="fa fa-cc-paypal" aria-hidden="true"></i>
+                    <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fa fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fa fa-cc-discover" aria-hidden="true"></i>
+                    </h4>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
