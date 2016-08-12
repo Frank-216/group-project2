@@ -6,6 +6,13 @@ var methodOverride = require('method-override');
 var app = express();
 // require('dotenv').config();
 
+//Route config 
+var htmlRoutes = require('./controllers/routes/htmlRoutes');
+var apiRoutes = require('./controllers/routes/apiRoutes');
+
+// db
+global.db = require('./models');
+
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
@@ -40,6 +47,9 @@ app.get('/products', function(req, res) {
 });
 app.get('/search', function(req, res) {
     res.render('search');
+});
+app.get('/productInfo', function(req, res) {
+    res.render('productinfo');
 });
 
 
