@@ -5,7 +5,9 @@ var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
 // require('dotenv').config();
-
+//require models 
+var Users = require('./models'['Users']);
+Users.sync();
 //Route config 
 var htmlRoutes = require('./controllers/routes/htmlRoutes');
 var apiRoutes = require('./controllers/routes/apiRoutes');
@@ -58,10 +60,10 @@ var port = process.env.PORT || 3000;
 
 console.log(true);
 // Launch server 
-db.sequelize.sync(function(){
+
 
     app.listen(port, function() {
     console.log("Connected to " + port);
     })
-}) 
+
 
