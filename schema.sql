@@ -27,6 +27,7 @@ CREATE TABLE products_DB{
 
 	}
 	CREATE TABLE IMAGES{
+		id INT NOT NULL AUTO_INCREMENT,
 		image_1 VARCHAR(200) NOT NULL,
 		image_2 VARCHAR(200),
 		image_3 VARCHAR(200),
@@ -36,3 +37,4 @@ CREATE TABLE products_DB{
 	;
 
 
+sequelize model:create --name Users -- attributes "user_name:string email:string password:string street_name:string city:string state:string zip:string phone_number:string"

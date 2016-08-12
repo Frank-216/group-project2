@@ -56,8 +56,12 @@ app.get('/productInfo', function(req, res) {
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
 
+console.log(true);
+// Launch server 
+db.sequelize.sync(function(){
 
-// Launch server  
-app.listen(port, function() {
+    app.listen(port, function() {
     console.log("Connected to " + port);
-})
+    })
+}) 
+
