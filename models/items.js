@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     product: DataTypes.STRING,
     price: DataTypes.DECIMAL,
     stock: DataTypes.INTEGER,
-    materials: DataTypes.STRING
+    materials: DataTypes.STRING,
+    info: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
