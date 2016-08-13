@@ -3,20 +3,19 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
-//products
-var Items = require('./models')['ITEMS'];
-
 var app = express();
+var Images = require('./models')['Images'];
+Images.sync();
 // require('dotenv').config();
 
-//Route config
+//Route config 
 var htmlRoutes = require('./controllers/routes/htmlRoutes');
 var apiRoutes = require('./controllers/routes/apiRoutes');
 
 // db
 global.db = require('./models');
 
-// set up preserver work
+// set up preserver work 
 var app = express();
 //allows access to complete public domain
 app.use(express.static(__dirname + '/public'));
@@ -56,11 +55,11 @@ app.get('/productInfo', function(req, res) {
 });
 
 
-//set the port connection. Either heroku or local host
+//set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
 
 
-// Launch server
+// Launch server  
 app.listen(port, function() {
     console.log("Connected to " + port);
 })
