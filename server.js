@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
+var Images = require('./models')['Images'];
+Images.sync();
 // require('dotenv').config();
 
 
