@@ -13,7 +13,7 @@ module.exports = {
       }], {});
     */
       return queryInterface.bulkInsert('ITEMS', [{
-        product_name: 'The Bachelor Goats Milk Soap',
+        product: 'The Bachelor Goats Milk Soap',
         price: 6.00,
         stock:100,
         materials:"Coconut Oil, Palm Oil, Safflower Oil, Glycerin, Goats Milk, Purfied Water, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Titanium Dioxide, Poppy Seeds",
@@ -21,7 +21,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Peppermint and Tea Tree Oil Goats Milk Soap',
+        product: 'Peppermint and Tea Tree Oil Goats Milk Soap',
         price: 6.00,
         stock:216,
         materials:"Coconut Oil, Safflower Oil, Palm Oil, Glycerin, Goats Milk, Purified Water, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Titanium Dioxide, Blueberry Seeds",
@@ -29,7 +29,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Tobacco and Vanilla Goats Milk Soap',
+        product: 'Tobacco and Vanilla Goats Milk Soap',
         price: 6.00,
         stock:216,
         materials:"Coconut Oil, Palm Oil, Safflower Oil, Purified Water, Glycerin, Goats Milk, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Titanium Dioxide, Poppy Seeds",
@@ -37,7 +37,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Beard Balm',
+        product: 'Beard Balm',
         price: 11.00,
         stock:300,
         materials:"Beeswax, Shea Butter, Cocoa Butter, Jojoba Oil",
@@ -45,15 +45,15 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-          product_name: 'The Wanderers Crate!',
+          product: 'The Wanderers Crate!',
         price: 100.00,
         stock:300,
         materials:"6 Goats Milk Soap, Bear Balm, Wanders Shave Soap with Shave Brush, Coffee and Coconut Facial Scrub, Tobacco and Vanilla Soy Candle",
-        info:"Come and Wander into the Wanderers World of Essentials that you must have! With the Wanderers Crate, you are becoming an honorary Wanderer with a one stop shop of all the Essentials! You get all six amazing scents of our Homemade Goats Milk Soap! And if you have a mane that needs taming then you get our Beard Balm and The Wanderers Shave Soap with Shave Brush to clean it up! And for those mornings when you need to refresh your face and wake up, you get our Coffee and Coconut Facial scrub which is also a mask to really refresh your look! And to top it all off you can scent up your oasis with our Tobacco and Vanilla Soy Candle.  Enjoy Wandering into a world in which you didn't know existed and be prepared to never want to leave!",
+        info:"Come and Wander into the Wanderers World of Essentials that you must have! With the Wanderers Crate, you are becoming an honorary Wanderer with a one stop shop of all the Essentials!",
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Sandalwood Bourbon Goats Milk Soap',
+        product: 'Sandalwood Bourbon Goats Milk Soap',
         price: 6.00,
         stock:65,
         materials:"Coconut Oil, Palm Oil, Safflower Oil, Glycerine, Goats Milk, Purified Water, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Titanium Dioxide",
@@ -61,35 +61,35 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Tobacco Vanilla Soy Candle',
+        product: 'Tobacco Vanilla Soy Candle',
         price: 10.00,
         stock:650,
         materials:"Coconut Oil, Palm Oil, Safflower Oil, Glycerine, Goats Milk, Purified Water, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Titanium Dioxide",
-        info:"Upon returning from their journeys, The Wanderer likes to sit back and relax with the scent of a Tobacco and Vanilla Candle lit. This soy candle has a wooden wick, allowing you to hear the faint crackling of a fire as you sit back and enjoy the smell. The smell of fresh cut tobacco leaves with an undertone of vanilla. Fresh vanilla with a dark background. Not the smell of dried or roasted tobacco leaves that would be in a cigar/cigarette/pipe.",
+        info:"Upon returning from their journeys, The Wanderer likes to sit back and relax with the scent of a Tobacco and Vanilla Candle lit. This soy candle has a wooden wick, allowing you to hear the faint crackling of a fire as you sit back and enjoy the smell",
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'Shaving Soap Set',
+        product: 'Shaving Soap Set',
         price: 16.00,
         stock:400,
         materials:"Bentonite Clay, Glycerin, Essential Oils, Coconut Oil, Palm Oil, Safflower Oil, Purified Water, Sodium Hydroxide, Sorbitol, Sorbitan Oleate, Oat Protein, Wheat Protein",
-        info:"The Wanderer is always here or there and loves to have the feel of comfort and style wherever they go! Upon one of Wanderers travels, Volcanic ash otherwise known as Bentonite Clay was picked up along the way and added to The Wanderers Shave Soap. It is known to pull out any toxins and impurities within the skin. So not only are you shaving, but cleansing as well. The Shave Set will last for many of your travels, so do not fret about needing a refill too soon!  The Wanderers Shaving Soap comes with a Shave Brush!",
+        info:"The Wanderer is always here or there and loves to have the feel of comfort and style wherever they go! Upon one of Wanderers travels!",
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'The Explorers Crate',
+        product: 'The Explorers Crate',
         price: 60.00,
         stock:65,
         materials:"Beard Balm, Wanderers Shave Soap, Essential Shaving Brush, Homemade Crate",
-        info:"Come and Explore what we have to offer at The Wanderers Essentials! In the Explorers Crate you'll be able to explore with a few new essentials you didn't know you needed! You get to choose three scents to take on your Exploration. As well as a tin of beard balm to tame that mane that you didn't know how to manage! And if that mane gets to be too overwhelming then use the Wanderers Shave Soap and Essential Shaving Brush to lather up and shave away. All of which is packaged in a handmade crate that I have built!",
+        info:"Come and Explore what we have to offer at The Wanderers Essentials! In the Explorers Crate you'll be able to explore with a few new essentials you didn't know you needed! ",
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        product_name: 'The Adventurers Crate',
+        product: 'The Adventurers Crate',
         price: 35.00,
         stock:65,
         materials:"2 Homemade Soaps, Coffee & Coconet Facial scrub, homemade crate",
-        info:"Adventure into The Wanderers Essentials with our starter crate! With it you receive two handmade soaps of your choosing! As well as our two-for-one Coffee and Coconut Facial scrub which doubles as a mask! All of which is packaged in a handmade crate that I have built! Enjoy your Adventure using the Wanderers Essentials!",
+        info:"Adventure into The Wanderers Essentials with our starter crate! With it you receive two handmade soaps of your choosing! As well as our two-for-one Coffee and Coconut Facial scrub! Enjoy your Adventure using the Wanderers Essentials!",
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
