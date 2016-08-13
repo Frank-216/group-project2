@@ -4,13 +4,6 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
-var Images = require('./models')['Images'];
-Images.sync();
-var ITEMS = require('./models')['ITEMS'];
-ITEMS. sync();
-var user = require('./models')['user'];
-user.sync();
-
 
 // require('dotenv').config();
 
@@ -21,6 +14,12 @@ var apiRoutes = require('./controllers/routes/apiRoutes');
 // db
 global.db = require('./models');
 
+var Images = require('./models')['Images'];
+Images.sync();
+var Users = require('./models')['users'];
+Users.sync();
+var Items = require('./models')['ITEMS'];
+Items.sync();
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
@@ -59,28 +58,6 @@ app.get('/search', function(req, res) {
 app.get('/productInfo', function(req, res) {
     res.render('productinfo');
 });
-//set express engine to each product page 
-
-/*app.get('/products/:product', function(req, res) {
-
-    res.render('products');
-});*/
-
-app.get('/products/:product', function(req, res) {
-     var product = req.params.product;
-     ITEMS.findOne({
-           where: {
-              product: product
-           }
-     }).then(function(product) {
-          console.log('product', product);
-          res.render('product', {
-            product: product
-          });
-     });
-
-});
-
 
 
 //set the port connection. Either heroku or local host 
