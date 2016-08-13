@@ -16,7 +16,7 @@ global.db = require('./models');
 
 var Images = require('./models')['Images'];
 Images.sync();
-var Users = require('./models')['users'];
+var Users = require('./models')['user'];
 Users.sync();
 var Items = require('./models')['ITEMS'];
 Items.sync();
