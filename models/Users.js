@@ -3,7 +3,7 @@
 module.exports = function(sequelize,DataTypes){
 
 
-	var User = sequelize.define('user', {
+	var User = sequelize.define('users', {
 	  user_name: DataTypes.TEXT,
 	  email: DataTypes.TEXT,
 		password: DataTypes.TEXT,
@@ -11,7 +11,7 @@ module.exports = function(sequelize,DataTypes){
 		city:DataTypes.TEXT,
 		state: DataTypes.TEXT,
 		zip: DataTypes.TEXT ,
-		owner: DataTypes.BOOLEAN,
+		
 		phone_number:DataTypes.INTEGER
 	},{
 		classMethods:{
