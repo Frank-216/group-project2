@@ -5,16 +5,18 @@ var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
 // require('dotenv').config();
-//require models 
-var Users = require('./models'['Users']);
-Users.sync();
+
+
 //Route config 
 var htmlRoutes = require('./controllers/routes/htmlRoutes');
 var apiRoutes = require('./controllers/routes/apiRoutes');
 
 // db
 global.db = require('./models');
-
+//require models 
+var Users = require('./models')['user'];
+console.log(Users);
+Users.sync();
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
