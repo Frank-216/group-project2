@@ -16,7 +16,7 @@ global.db = require('./models');
 
 var Images = require('./models')['Images'];
 Images.sync();
-var Users = require('./models')['users'];
+var Users = require('./models')['user'];
 Users.sync();
 var Items = require('./models')['ITEMS'];
 Items.sync();
@@ -59,6 +59,21 @@ app.get('/productInfo', function(req, res) {
     res.render('productinfo');
 });
 
+//sets express engin for each product handlebars
+app.get('/products/:product', function(req, res) {
+     var product = req.params.product;
+     Items.findOne({
+           where: {
+              product: product
+           }
+     }).then(function(product) {
+          console.log('product', product);
+          res.render('product', {
+            product: product
+          });
+     });
+
+});
 
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
@@ -68,3 +83,4 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("Connected to " + port);
 })
+
