@@ -6,13 +6,17 @@ var methodOverride = require('method-override');
 var app = express();
 // require('dotenv').config();
 
+
 //Route config 
 var htmlRoutes = require('./controllers/routes/htmlRoutes');
 var apiRoutes = require('./controllers/routes/apiRoutes');
 
 // db
 global.db = require('./models');
-
+//require models 
+var Users = require('./models')['user'];
+console.log(Users);
+Users.sync();
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
@@ -56,8 +60,12 @@ app.get('/productInfo', function(req, res) {
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
 
+console.log(true);
+// Launch server 
 
-// Launch server  
-app.listen(port, function() {
+
+    app.listen(port, function() {
     console.log("Connected to " + port);
-})
+    })
+
+
