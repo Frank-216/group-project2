@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 var app = express();
 var Images = require('./models')['Images'];
 Images.sync();
-// require('dotenv').config();
+require('dotenv').config();
 
 
 //Route config 
