@@ -11,7 +11,7 @@ module.exports = function(sequelize,DataTypes){
 		city:DataTypes.TEXT,
 		state: DataTypes.TEXT,
 		zip: DataTypes.TEXT ,
-		owner: DataTypes.BOOLEAN,
+		
 		phone_number:DataTypes.INTEGER
 	},{
 		classMethods:{
