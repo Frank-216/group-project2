@@ -19,11 +19,11 @@ var apiRoutes = require('./controllers/routes/apiRoutes');
 global.db = require('./models');
 
 var Images = require('./models')['Images'];
-Images.sync();
+Images.sync({force:true});
 var Users = require('./models')['user'];
-Users.sync();
+Users.sync({force:true});
 var Items = require('./models')['ITEMS'];
-Items.sync();
+Items.sync({force:true});
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
