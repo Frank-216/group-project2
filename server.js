@@ -65,7 +65,7 @@ app.get('/productInfo', function(req, res) {
     res.render('productinfo');
 });
 
-//sets express engin for each product handlebars
+//sets express engine for each product handlebars
 app.get('/products/:product', function(req, res) {
      var product = req.params.product;
      Items.findOne({
