@@ -93,7 +93,7 @@ module.exports = {
         updatedAt: new Date()
       }], {});
   },
-
+  
   down: function (queryInterface, Sequelize) {
     /*
       Add reverting commands here.

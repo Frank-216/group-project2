@@ -74,6 +74,21 @@ app.get('/products/:product', function(req, res) {
      });
 
 });
+//set images routes fromt he image datebase
+/*app.get('/products/:product', function(req, res) {
+     var product = req.params.product;
+     Items.findOne({
+           where: {
+              product: product
+           }
+     }).then(function(product) {
+          console.log('product', product);
+          res.render('product', {
+            product: product
+          });
+     });
+
+});*/
 
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
