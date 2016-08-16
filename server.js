@@ -4,9 +4,9 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
-var Images = require('./models')['Images'];
-Images.sync();
-require('dotenv').config();
+// var Images = require('./models')['Images'];
+// Images.sync();
+// require('dotenv').config();
 
 
 // require('dotenv').config();
@@ -16,14 +16,14 @@ var htmlRoutes = require('./controllers/routes/htmlRoutes');
 var apiRoutes = require('./controllers/routes/apiRoutes');
 
 // db
-global.db = require('./models');
+// global.db = require('./models');
 
-var Images = require('./models')['Images'];
-Images.sync();
-var Users = require('./models')['user'];
-Users.sync();
-var Items = require('./models')['ITEMS'];
-Items.sync();
+// var Images = require('./models')['Images'];
+// Images.sync();
+// var Users = require('./models')['user'];
+// Users.sync();
+// var Items = require('./models')['ITEMS'];
+// Items.sync();
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
