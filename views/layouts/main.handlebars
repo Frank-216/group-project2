@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <!-- bootstrap, font awesome, googlefonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-Xqcy5ttufkC3rBa8EdiAyA1VgOGrmel2Y+wxm4K3kI3fcjTWlDWrlnxyD6hOi3PF" crossorigin="anonymous">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
     <!-- jquery, bootstrap js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -20,6 +21,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <!-- public files -->
     <link rel="stylesheet" type="text/css" href="/style.css">
+      <script src="/geoscript.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
 </head>
 
 <body>
@@ -70,15 +74,15 @@
                 <div class="col-md-3 col-md-offset-1">
                     <h5>GET CONNECTED</h5>
                     <a href="https://www.facebook.com/TheWanderersEssentials/" target="_blank">
-                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-32.png"></a>
+                        <img src="/img/facebook.png" width="20%"></a>
                     <!--          <a href="#" target="_blank">
                         <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/twitter_online_social_media-32.png"></a> -->
                     <a href="https://www.instagram.com/evan_edward_austin/" target="_blank">
-                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/instagram_online_social_media_photo-32.png"></a>
+                        <img src="/img/instagram.png" width="20%"></a>
                     <a href="#" target="_blank">
-                        <img src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_pinterest-32.png"></a>
+                        <img src="/img/pinterest.png" width="20%"></a>
                     <a href="https://www.etsy.com/shop/WanderersEssentials" target="_blank">
-                        <img src="https://cdn1.iconfinder.com/data/icons/black-white-social-media/32/etsy_social_media_logo-32.png"></a>
+                        <img src="/img/etsy.png" width="20%"></a>
                     <br>
                     <br>
                 </div>
@@ -106,6 +110,17 @@
                 </div>
             </div>
         </div>
+    <script type="text/javascript">
+
+                var input = document.getElementById('searchTextField');
+                var options = {
+                    componentRestrictions: {
+                        country: 'us'
+                    }
+                };
+
+                new google.maps.places.Autocomplete(input, options);
+    </script>
 </body>
 
 </html>
