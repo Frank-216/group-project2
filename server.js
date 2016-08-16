@@ -18,12 +18,14 @@ var apiRoutes = require('./controllers/routes/apiRoutes');
 // db
 // global.db = require('./models');
 
-// var Images = require('./models')['Images'];
-// Images.sync();
-// var Users = require('./models')['user'];
-// Users.sync();
-// var Items = require('./models')['ITEMS'];
-// Items.sync();
+
+var Images = require('./models')['Images'];
+Images.sync({force:true});
+var Users = require('./models')['user'];
+Users.sync({force:true});
+var Items = require('./models')['ITEMS'];
+Items.sync({force:true});
+
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
@@ -63,6 +65,36 @@ app.get('/productInfo', function(req, res) {
     res.render('productinfo');
 });
 
+//sets express engin for each product handlebars
+app.get('/products/:product', function(req, res) {
+     var product = req.params.product;
+     Items.findOne({
+           where: {
+              product: product
+           }
+     }).then(function(product) {
+          console.log('product', product);
+          res.render('product', {
+            product: product
+          });
+     });
+
+});
+//set images routes fromt he image datebase
+/*app.get('/products/:product', function(req, res) {
+     var product = req.params.product;
+     Items.findOne({
+           where: {
+              product: product
+           }
+     }).then(function(product) {
+          console.log('product', product);
+          res.render('product', {
+            product: product
+          });
+     });
+
+});*/
 
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
@@ -72,3 +104,4 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("Connected to " + port);
 })
+

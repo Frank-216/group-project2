@@ -15,11 +15,12 @@ module.exports = function(sequelize,DataTypes){
 		phone_number:DataTypes.INTEGER
 	},{
 		classMethods:{
-
+			associate: function(models) { 
+				User.hasMany(models.ITEMS,{onDelete:'cascade', hooks:true});
+			}
 		}
-	});
+	})
 
 	return User;
 }
-
 
