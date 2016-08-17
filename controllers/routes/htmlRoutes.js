@@ -5,7 +5,10 @@
 // var Users = require('../models/Users.js');
 // var Images = require("..models/images.js");
 
+//COMMONG VARIABLES ON THE ROUTES PAGE
 var homeController = require('../home');
+var products = db.ITEMS;
+var users = db.users;
 
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
@@ -27,38 +30,37 @@ module.exports = function(app) {
 	app.get('/signin', function(req, res) {
 	    res.render('signin');
 	});
+
+	// Display the products page using the find all function to read oru sequelize DB
 	app.get('/products', function(req, res) {
-	    res.render('products');
+			
+			products.findAll({
+				 
+			}).then(function(data){
+				// the query we are looking for in each div
+
+				res.render("products",{
+					products: data
+				});
+			});
 	});
 	app.get('/search', function(req, res) {
 	    res.render('search');
 	});
 
 	app.get('/products/:product', function(req, res) {
-     var product = req.params.product;
-     Items.findOne({
+     var item = req.params.product;
+     console.log(item);
+     products.findOne({
            where: {
-              product: product
+              product: item
            }
-     }).then(function(product) {
-          console.log('product', product);
+     }).then(function(data) {
+         console.log('product Data' + data);
           res.render('product', {
-            product: product
+            product: data
           });
      });
 	});
-	app.get('/products/:product', function(req, res) {
-     var product = req.params.product;
-     Items.findOne({
-           where: {
-              product: product
-           }
-     }).then(function(product) {
-          console.log('product', product);
-          res.render('product', {
-            product: product
-          });
-     });
-
-});
+	
 };
