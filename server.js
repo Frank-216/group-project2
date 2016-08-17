@@ -49,11 +49,6 @@ db.sequelize.sync().then(function(){
   })
 })
 
-db.sequelize.sync().then(function(){
-  app.listen(port, function() {
-    console.log("Connected to " + port);
-  })
-});
 // Launch server  
 
 
