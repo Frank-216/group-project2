@@ -4,9 +4,9 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 var app = express();
-var Images = require('./models')['Images'];
+/*var Images = require('./models')['Images'];
 Images.sync();
-require('dotenv').config();
+require('dotenv').config();*/
 
 
 // require('dotenv').config();
@@ -18,12 +18,23 @@ var apiRoutes = require('./controllers/routes/apiRoutes');
 // db
 global.db = require('./models');
 
+///--- sync everything---
+var models  = require('./models');
+var sequelizeConnection = models.sequelize;
+
+sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
+
+// make our tables
+// note: force:true drops the table if it already exists---{force: true}
+.then(function(){
+  return sequelizeConnection.sync()
+});
+//---sync everything---
+
+
 var Images = require('./models')['Images'];
-Images.sync({force:true});
 var Users = require('./models')['user'];
-Users.sync({force:true});
 var Items = require('./models')['ITEMS'];
-Items.sync({force:true});
 // set up preserver work 
 var app = express();
 //allows access to complete public domain
@@ -69,7 +80,8 @@ app.get('/products/:product', function(req, res) {
      Items.findOne({
            where: {
               product: product
-           }
+           },
+           include: [{model: Images, required:true}]
      }).then(function(product) {
           console.log('product', product);
           res.render('product', {
@@ -78,21 +90,6 @@ app.get('/products/:product', function(req, res) {
      });
 
 });
-//set images routes fromt he image datebase
-/*app.get('/products/:product', function(req, res) {
-     var product = req.params.product;
-     Items.findOne({
-           where: {
-              product: product
-           }
-     }).then(function(product) {
-          console.log('product', product);
-          res.render('product', {
-            product: product
-          });
-     });
-
-});*/
 
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
