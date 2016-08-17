@@ -40,7 +40,8 @@ Depending on the size of the project, if it is small and simple enough the refer
 
 Tests
 
-To test the web application, simply run node server.js in terminal then open the web browser and enter localhost address.
+1. Run node server.js then open the web browser and enter localhost address.
+2. OR use Mocha (a Javascript test framework) and Chai (library for node and the browser that can be delightfully paired with any javascript testing framework) to test web application.
 
 The Team
 
