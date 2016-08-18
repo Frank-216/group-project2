@@ -1,4 +1,76 @@
 <div class="col-md-10 col-md-offset-1 text-center">
-                <h2>CONTACT</h2>
+        <h2>CONTACT</h2>
+        <div class="row">            <div class="panel-body">
 
+            <div class="col-lg-8 col-lg-offset-2">
+                <form action="contact.php" id="contact-form" method="post"
+                name="contact-form" role="form">
+                    <div class="messages"></div>
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Firstname is required." id="form_name"
+                                    name="name" placeholder="First Name"
+                                    required="required" type="text">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Lastname is required." id="form_lastname"
+                                    name="surname" placeholder="Last Name"
+                                    required="required" type="text">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <input class="form-control" data-error=
+                                    "Valid email is required." id="form_email"
+                                    name="email" placeholder="Email" required=
+                                    "required" type="email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <input class="form-control" id="form_phone"
+                                    name="phone" placeholder="Phone" type=
+                                    "tel">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <textarea class="form-control" data-error=
+                                    "Please,leave a message." id=
+                                    "form_message" name="message" placeholder=
+                                    "Message" required="required" rows=
+                                    "4"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-5">
+                                <input class="btn btn-send" type="submit"
+                                value="Send">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
             </div>
+        </div>
+    </div>
