@@ -77,10 +77,4 @@ Chen Liu
 
 ##The Team
 
-Frank Capraro
-
-Kristin Gumbert
-
-Chen Liu
-
-Rangy Abines
+![wnaderers](https://cloud.githubusercontent.com/assets/18274079/17759120/d18b1e66-64c2-11e6-9b7a-866b758278ec.png)
