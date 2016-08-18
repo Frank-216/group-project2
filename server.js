@@ -15,7 +15,6 @@ global.db = require('./models');
 
 
 
-
 var app = express();
 
 
