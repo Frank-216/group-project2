@@ -1,4 +1,11 @@
 <div class="col-md-10 col-md-offset-1 text-center">
                 <h2>CART</h2>
-
+  {{#each cartItems}}
+		{{this.item.product}}
+		{{this.item.price}}
+		{{#each this.item.Images}}
+			<img src="{{this.url}}"/>
+		{{/each}}
+		
+	{{/each}}
             </div>
