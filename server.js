@@ -36,9 +36,6 @@ var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 
 
 
-var htmlRoutes = require('./controllers/routes/htmlRoutes')(app);
-
-
 
 //set the port connection. Either heroku or local host 
 var port = process.env.PORT || 3000;
@@ -53,11 +50,11 @@ db.sequelize.sync().then(function(){
   })
 })
 
-db.sequelize.sync().then(function(){
-  app.listen(port, function() {
-    console.log("Connected to " + port);
-  })
-});
+// db.sequelize.sync().then(function(){
+//   app.listen(port, function() {
+//     console.log("Connected to " + port);
+//   })
+// });
 // Launch server  
 
 
