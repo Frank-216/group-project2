@@ -2,7 +2,7 @@
 //COMMONG VARIABLES ON THE ROUTES PAGE
 var homeController = require('../home');
 var products = db.ITEMS;
-var users = db.users;
+var users = db.user;
 
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
@@ -56,6 +56,7 @@ module.exports = function(app) {
 			email: req.body.email,
 			password: req.body.password,
 			street_name: req.body.address,
+
 			// zip:req.body.zipCode
 		}).then(function(data){
 			console.log(data);
