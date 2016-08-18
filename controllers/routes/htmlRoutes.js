@@ -1,6 +1,4 @@
 
-
-
 //COMMONG VARIABLES ON THE ROUTES PAGE
 var homeController = require('../home');
 var products = db.ITEMS;
@@ -60,4 +58,3 @@ module.exports = function(app) {
 	});
 	
 };
-
