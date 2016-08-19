@@ -3,6 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
+var session = require('express-session');
+
 
 
 
@@ -12,10 +14,14 @@ var methodOverride = require('method-override');
 global.db = require('./models');
 
 
-
-
 var app = express();
 
+app.use(session({
+  secret: 'speakeasyconservatory',
+  cookie: {
+    maxAge: 60000 * 60 * 24 * 14
+  }
+}));
 
 //allows access to complete public domain
 app.use(express.static(__dirname + '/public'));
