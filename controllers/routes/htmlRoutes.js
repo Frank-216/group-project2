@@ -32,7 +32,7 @@ module.exports = function(app) {
 
 	
 	//create a login route to ensure that customers are able to sign in. 
-	app.post('/signin/new',function (req,res){
+	app.post('/signin/existing',function (req,res){
 		var cred = req.body;
 		console.log(cred.username);
 
@@ -43,13 +43,13 @@ module.exports = function(app) {
 		}).then(function(data){
 			// store user information in local storage
 			console.log(data);
-			var user = data; 
+			req.session.user = data;
 			res.redirect('/products');
 
 		})
 	});
 	// register information 
-	app.post("/signin/existing",function(req,res){
+	app.post("/signin/new",function(req,res){
 		console.log('post');
 		console.log(req.body);
 
