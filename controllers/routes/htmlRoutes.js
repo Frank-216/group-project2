@@ -4,6 +4,8 @@ var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
 
+// express-session
+
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
  
@@ -32,6 +34,8 @@ module.exports = function(app) {
 	
 	//create a login route to ensure that customers are able to sign in. 
 	app.get('/signin/',function (req,res){
+
+	app.post('/signin/existing',function (req,res){
 		var cred = req.body;
 		console.log(cred.username);
 
@@ -44,10 +48,14 @@ module.exports = function(app) {
 			console.log(data);
 			var user = data; 
 
+			res.redirect('/products');
+
 		})
 	});
 	// register information 
 	app.post("/signin/",function(req,res){
+
+	app.post("/signin/new",function(req,res){
 		console.log('post');
 		console.log(req.body);
 
@@ -62,6 +70,9 @@ module.exports = function(app) {
 			// zip:req.body.zipCode
 		}).then(function(data){
 			console.log(data);
+
+			req.session.user = data;
+			res.redirect('/products');
 		})
 
 	})
