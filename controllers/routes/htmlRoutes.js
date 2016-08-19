@@ -3,6 +3,7 @@
 var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
+//express-session 
 
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
@@ -31,7 +32,7 @@ module.exports = function(app) {
 
 	
 	//create a login route to ensure that customers are able to sign in. 
-	app.get('/signin/',function (req,res){
+	app.post('/signin/new',function (req,res){
 		var cred = req.body;
 		console.log(cred.username);
 
@@ -43,11 +44,12 @@ module.exports = function(app) {
 			// store user information in local storage
 			console.log(data);
 			var user = data; 
+			res.redirect('/products');
 
 		})
 	});
 	// register information 
-	app.post("/signin/",function(req,res){
+	app.post("/signin/existing",function(req,res){
 		console.log('post');
 		console.log(req.body);
 
@@ -60,18 +62,19 @@ module.exports = function(app) {
 			// zip:req.body.zipCode
 		}).then(function(data){
 			req.session.user = data;
+			console.log('session user', req.session.user);
 			res.redirect('/products');
 		})
 
 	})
 	// Display the products page using the find all function to read oru sequelize DB
 	app.get('/products', function(req, res) {
-			
+			console.log('session', req.user);
 			products.findAll({
 				 
 			}).then(function(data){
 				// the query we are looking for in each div
-
+				console.log(req.session.user);
 				res.render("products",{
 					products: data
 				});
