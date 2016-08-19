@@ -1,13 +1,12 @@
-
 //COMMONG VARIABLES ON THE ROUTES PAGE
 var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
 
+
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
  
-
 
 // render the index page 
 	app.get('/', function(req, res) {
@@ -30,7 +29,6 @@ module.exports = function(app) {
 	    res.render('signin');
 	});
 
-	
 	//create a login route to ensure that customers are able to sign in. 
 	app.post('/signin/existing',function (req,res){
 		var cred = req.body;
@@ -80,9 +78,9 @@ module.exports = function(app) {
 				});
 			});
 	});
-	app.get('/search', function(req, res) {
-	    res.render('search');
-	});
+	 app.get('/testimonials', function(req, res) {
+      res.render('testimonials');
+    });
 
 	app.get('/products/:product', function(req, res) {
      var item = req.params.product;
@@ -101,3 +99,4 @@ module.exports = function(app) {
 
 	
 };
+
