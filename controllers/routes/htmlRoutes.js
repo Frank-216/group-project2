@@ -59,7 +59,8 @@ module.exports = function(app) {
 
 			// zip:req.body.zipCode
 		}).then(function(data){
-			console.log(data);
+			req.session.user = data;
+			res.redirect('/products');
 		})
 
 	})
@@ -76,8 +77,8 @@ module.exports = function(app) {
 				});
 			});
 	});
-	app.get('/search', function(req, res) {
-	    res.render('search');
+	app.get('/testimonials', function(req, res) {
+	    res.render('testimonials');
 	});
 
 	app.get('/products/:product', function(req, res) {
