@@ -80,8 +80,8 @@ module.exports = function(app) {
 				});
 			});
 	});
-	app.get('/testimonials', function(req, res) {
-	    res.render('testimonials');
+	app.get('/search', function(req, res) {
+	    res.render('search');
 	});
 
 	app.get('/products/:product', function(req, res) {
