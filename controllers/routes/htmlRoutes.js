@@ -38,7 +38,7 @@ module.exports = function(app) {
 				});
 			});
 	});
-	app.get('/search', function(req, res) {
+	app.get('/testimonials', function(req, res) {
 	    res.render('search');
 	});
 
