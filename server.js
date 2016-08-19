@@ -15,7 +15,6 @@ var session = require('express-session');
 global.db = require('./models');
 
 
-
 var app = express();
 
 app.use(session({
