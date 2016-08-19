@@ -39,7 +39,7 @@ module.exports = function(app) {
 			});
 	});
 	app.get('/testimonials', function(req, res) {
-	    res.render('search');
+	    res.render('testimonials');
 	});
 
 	app.get('/products/:product', function(req, res) {
