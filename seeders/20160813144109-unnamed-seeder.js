@@ -47,7 +47,7 @@ module.exports = {
           product: 'The Wanderers Crate!',
         price: 100.00,
         stock:300,
-        materials:"6 Goats Milk Soap, Bear Balm, Wanders Shave Soap with Shave Brush, Coffee and Coconut Facial Scrub, Tobacco and Vanilla Soy Candle",
+        materials:"6 Goats Milk Soap, Beard Balm, Wanders Shave Soap with Shave Brush, Coffee and Coconut Facial Scrub, Tobacco and Vanilla Soy Candle",
         info:"Come and Wander into the Wanderers World of Essentials that you must have! With the Wanderers Crate, you are becoming an honorary Wanderer with a one stop shop of all the Essentials!",
         createdAt: new Date(),
         updatedAt: new Date()

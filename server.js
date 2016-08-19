@@ -10,7 +10,6 @@ var session = require('express-session');
 
 
 
-
 // db
 global.db = require('./models');
 

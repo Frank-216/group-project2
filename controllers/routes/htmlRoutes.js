@@ -3,13 +3,13 @@
 var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
-//express-session 
 
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
  
 
-  // render the index page 
+
+// render the index page 
 	app.get('/', function(req, res) {
 	    res.render('index');
 	});

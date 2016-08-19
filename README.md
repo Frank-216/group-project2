@@ -1,19 +1,12 @@
 
-The Wanderers
-
-Synopsis
-
-The Wanderers Essentials is an iconic brand which is enriching people by its natural inspired products. The team behind the 'The Wanderers Essentials' used the most current web technologies in creating a wondrous, user friendly, and secured web application.     
-
-Code Example
 #The Wanderers
 
 ##Synopsis
 
-The Wanderers Essentials is an iconic brand enriching people with its natural-inspired products. The team behind this brand used the most current web technologies in creating a wondrous, user-friendly, and secured web application.     
+The Wanderers Essentials is an iconic brand enriching people with its natural-inspired products. The team behind this brand used the most current web technologies in creating a wondrous, user-friendly, and secured web application.        
+
 
 ##Code Example
-
 
 <img width="197" alt="thewanderers" src="https://cloud.githubusercontent.com/assets/18274079/17719882/bde05908-63eb-11e6-8515-2b8e59141347.png">
 
@@ -26,18 +19,11 @@ The Wanderers Essentials is an iconic brand enriching people with its natural-in
 <img width="700" alt="seeder" src="https://cloud.githubusercontent.com/assets/18274079/17719992/8a06c648-63ec-11e6-991a-6cf8d8335125.png">
 
 
-Motivation
-
-The team was motivated on enhancing their knowledge and skills on full stack development. With this project, teamwork set the level high as well as the delegation of task, project management, and research.   
-
-Installation
-
 ##Motivation
 
 This project motivated the team to enhance its knowledge and skills on full stack development. This set a precedence to a high level of teamwork, as well as highlight the importance of proper delegation of task, project management, and research.   
 
 ##Installation
-
 
 1. Create a repository.
 2. Create a server.js file.
@@ -52,22 +38,9 @@ This project motivated the team to enhance its knowledge and skills on full stac
 11. Edit handlebars' files.
 
 
-API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-Tests
-
-To test the web application, simply run node server.js in terminal then open the web browser and enter localhost address.
-
-The Team
-
-Frank Capraro
-Kristin Gumbert
-Chen Liu
-
 ##API Reference
 
+-------------
 
 
 ##Tests
@@ -76,11 +49,4 @@ Chen Liu
 2. OR use Mocha (a Javascript test framework) and Chai (library for node and the browser that can be delightfully paired with any javascript testing framework) to test web application.
 
 ##The Team
-
-Frank Capraro
-
-Kristin Gumbert
-
-Chen Liu
-
-Rangy Abines
+![wnaderers](https://cloud.githubusercontent.com/assets/18274079/17759120/d18b1e66-64c2-11e6-9b7a-866b758278ec.png)

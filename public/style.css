@@ -12,6 +12,9 @@
     .btn {
         color: white;
     }
+    .btn:hover{
+        color: white;
+    }
     
     .links {
         background-color: #716152;
@@ -96,8 +99,7 @@
     }
     /**/
     /* login.handlebars */
-    
-    .form {
+.form {
         background: rgba($form-bg, .9);
         padding: 40px;
         max-width: 600px;
@@ -257,14 +259,14 @@
         color: #453B32;
     }
     
-    .panel-login>.panel-heading {
+    .panel/*-login>.panel-heading*/ {
         color: #453B32;
         background-color: #fff;
         border-color: #fff;
         text-align: center;
     }
     
-    .panel-login>.panel-heading a {
+    .panel/*-login>.panel-heading*/ a {
         text-decoration: none;
         color: #666;
         font-weight: bold;
@@ -274,7 +276,7 @@
         transition: all 0.1s linear;
     }
     
-    .panel-login>.panel-heading a.active {
+    .panel/*-login>.panel-heading*/ a.active {
         color: #453B32;
         font-size: 18px;
     }
@@ -284,9 +286,11 @@
         background-color: white;
     }
     
-    .panel-login input[type="text"],
+    .panel-login input,/*[type="text"],
     .panel-login input[type="email"],
-    .panel-login input[type="password"] {
+    .panel-login input[type="password"]*/
+    input.form-control,
+    .form-control {
         height: 45px;
         border: 1px solid #453B32;
         font-size: 16px;
@@ -295,8 +299,10 @@
         transition: all 0.1s linear;
     }
     
-    .panel-login input:hover,
-    .panel-login input:focus {
+    .panel/*-login */ input:hover,
+    .panel-login input:focus,
+    .form-control:hover,
+    .form-control:focus {
         outline: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -304,7 +310,7 @@
         border-color: #453B32;
     }
     
-    .btn-login {
+    .btn/*-login*/ {
         background-color: #453B32;
         outline: none;
         color: #fff;
@@ -315,16 +321,7 @@
         text-transform: uppercase;
     }
     
-    .forgot-password {
-        text-decoration: underline;
-        color: #453B32;
-    }
-    
-    .forgot-password:hover,
-    .forgot-password:focus {
-        text-decoration: underline;
-        color: #453B32;
-    }
+
     
     .btn-register {
         background-color: #453B32;
