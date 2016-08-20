@@ -3,16 +3,19 @@
                 <br>
                 <!-- row 1 -->
                 <div class="row">
-                    <div class="col-md-4 text-left productItem">
-                        <a href="products/Tobacco and Vanilla Goats Milk Soap">
-                            <img src="/img/tobaccovanSquare.jpg" width="100%">
+                    {{#each products}}
+                    <div class="col-md-4 text-left productItem" value = "{{this.id}}">
+                        <a href="products/{{this.product}}">
+                            <img src="{{this.Images.0.url}}"/>
                         </a>
                         <br>
-                        <div class="productName"> <strong>Tobacco & Vanilla </strong>
-                            <br>Goats Milk Soap</div>
-                        <div class="productPrice">$6</div>
+                        <div class="productName" value = "{{this.products}}"> 
+                            <strong>{{this.product}}</strong>
+                        </div>
+                        <div class="productPrice" value = {{this.price}}>Price: ${{this.price}}</div>
                     </div>
-                    <div class="col-md-4 text-left productItem">
+                    {{/each}}
+                    <!-- <div class="col-md-4 text-left productItem">
                         <a href="products/Peppermint and Tea Tree Oil Goats Milk Soap">
                             <img src="/img/peppermintSquare.jpg" width="100%">
                         </a>
@@ -35,7 +38,7 @@
                         <br>
                     </div>
                 </div>
-                <!-- row 2 -->
+             
                 <div class="row">
                     <div class="col-md-4 text-left productItem">
                         <a href="products/Sandalwood Bourbon Goats Milk Soap">
@@ -69,7 +72,7 @@
                         <div class="productPrice">$10</div>
                     </div>
                 </div>
-                <!-- row 3 -->
+               
                 <div class="row">
                     <div class="col-md-4 text-left productItem">
                         <a href="products/Shaving Soap Set">
@@ -113,8 +116,8 @@
                         </div>
                         <div class="productPrice">$35</div>
                         <br>
-                    </div>
-                    <!--                     <div class="col-md-4 text-left productItem">
+                    </div> 
+                                      <div class="col-md-4 text-left productItem">
                         <a href="#">
                             <img src="" width="100%">
                         </a>

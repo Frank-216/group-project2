@@ -27,7 +27,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="/signin/existing" method="POST" role="form" style="display: block;">
                                     <div class="form-group">
                                         <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                     </div>
@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                                <input type="submit" name="login" id="login" tabindex="4" class="form-control btn" value="Log In">
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,8 @@
                                         </div>
                                     </div> --}}
                                 </form>
-                                <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                <form id="register-form" action="/signin/new" method="POST" role="form" style="display: none;">
+
                                     <div class="form-group">
                                         <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                     </div>
@@ -66,12 +67,15 @@
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        <input type="password" name="confirm_password" id="confirm_password" onkeyup="validatePassword(); return false;"tabindex="2" class="form-control" placeholder="Confirm Password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="address" id="searchTextField" tabindex="1" class="form-control" placeholder="Address" value="">
+                                        <input type="text" name="address" id="searchTextField" tabindex="2" class="form-control" placeholder="Address" value="">
                                     </div>
-<!--                                     <div class="form-group">
+                                    <div class="form-group">
+                                        <input type="text" name="zip" id="zipCode" tabindex="2" class="form-control" placeholder="Zip Code" value="">
+                                    </div>{{!-- 
+                                     <div class="form-group">
                                         <input type="text" name="address" id="email" tabindex="1" class="form-control" placeholder="City" value="">
                                     </div>
                                     <div class="form-group">
@@ -79,11 +83,11 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="address" id="email" tabindex="1" class="form-control" placeholder="Zip Code" value="">
-                                    </div> -->
+                                    </div> --}}
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                                <input type="submit" name="register" id="register" tabindex="4" class="form-control btn" value="Register Now">
                                             </div>
                                         </div>
                                     </div>
@@ -94,3 +98,76 @@
                 </div>
             </div>
     </div>
+
+    <script type="text/javascript">
+$('#zipCode').keyup(function () { 
+    this.value = this.value.replace(/[^0-9\.]/g,'');
+    limitText(this, 5)
+});
+
+$('#zipCode').on('keyup', function() {
+    limitText(this, 5)
+});
+
+function limitText(field, maxChar){
+    var ref = $(field),
+        val = ref.val();
+    if ( val.length >= maxChar ){
+        ref.val(function() {
+            console.log(val.substr(0, maxChar))
+            return val.substr(0, maxChar);       
+        });
+    }
+}
+
+
+
+jQuery.validator.addMethod( 'passwordMatch', function(value, element) {
+    
+    // The two password inputs
+    var password = $("#password").val();
+    var confirmPassword = $("#confirm_password").val();
+
+    // Check for equality with the password inputs
+    if (password != confirmPassword ) {
+        return false;
+    } else {
+        return true;
+    }
+
+}, "Your Passwords Must Match");
+
+
+
+// ==========================================================================
+// Registration Form : jquery validation
+// http://jqueryvalidation.org/validate
+
+$('#register-form').validate({
+    // rules
+    rules: {
+        register_password: {
+            required: true,
+            minlength: 3
+        },
+        register_pass_confirm: {
+            required: true,
+            minlength: 3,
+            passwordMatch: true // set this on the field you're trying to match
+        }
+    },
+
+    // messages
+    messages: {
+        register_password: {
+            required: "What is your password?",
+            minlength: "Your password must contain more than 3 characters"
+        },
+        register_pass_confirm: {
+            required: "You must confirm your password",
+            minlength: "Your password must contain more than 3 characters",
+            passwordMatch: "Your Passwords Must Match" // custom message for mismatched passwords
+        }
+    }
+});//end validate
+    </script>
