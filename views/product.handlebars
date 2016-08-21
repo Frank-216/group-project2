@@ -1,16 +1,18 @@
 <!-- <h2>{{product.product}}</h2>
 <h2>{{product.price}}</h2>
-
 <h2>{{product.stock}}</h2>
 <h2>{{product.info}}</h2>
 <h2>{{product.materials}}</h2> -->
-
 <div class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <br>
                     <br>
                     <div class="col-md-5 col-md-offset-1">
-                        <img src="/img/tobaccovan.jpg" width="100%">
+
+                        {{#each product.Images}}
+                             <img src="{{this.url}}" width="100%">
+                        {{/each}}
+                        
                     </div>
                     <div class="col-md-5">
                         <h4>{{product.product}} </h4>
@@ -35,8 +37,8 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn" id="addCart">
-                                    <h6>ADD TO CART</h6></button>
+                                <a href="/add-to-cart/{{product.id}}" class="btn" id="addCart">
+                                    <h6>ADD TO CART</h6></a>
                             </div>
                         </div>
                         <br>

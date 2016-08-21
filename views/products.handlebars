@@ -6,13 +6,21 @@
                     {{#each products}}
                     <div class="col-md-4 text-left productItem" value = "{{this.id}}">
                         <a href="products/{{this.product}}">
+<<<<<<< HEAD
                             <img src="/img/tobaccovanSquare.jpg" width="100%">
+=======
+                            <img src="{{this.Images.0.url}}"/>
+>>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
                         </a>
                         <br>
                         <div class="productName" value = "{{this.products}}"> 
                             <strong>{{this.product}}</strong>
                         </div>
+<<<<<<< HEAD
                         <div class="productPrice" value = {{this.price}}>{{this.price}}</div>
+=======
+                        <div class="productPrice" value = {{this.price}}>Price: ${{this.price}}</div>
+>>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
                     </div>
                     {{/each}}
                     <!-- <div class="col-md-4 text-left productItem">
