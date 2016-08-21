@@ -2,8 +2,6 @@
 var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
-<<<<<<< HEAD
-=======
 var Images = db.Images;
 var Cart = require('../../cart_model/cart');
 
@@ -31,8 +29,6 @@ var cartHelper = {
   }
 };
 
->>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
-
 
 module.exports = function(app) {
   app.get('/', homeController.renderHome);
@@ -48,10 +44,7 @@ module.exports = function(app) {
 	});
 	//render the cart page 
 	app.get('/cart', function(req, res) {
-<<<<<<< HEAD
-	    res.render('cart');
-	});
-=======
+
     console.log('session', req.session);
     //render req.session
     var CartTotals = req.session;
@@ -70,7 +63,6 @@ module.exports = function(app) {
 
     });
   });
->>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
 	// render the contact page 
 	app.get('/contact', function(req, res) {
 	    res.render('contact');
@@ -120,11 +112,7 @@ module.exports = function(app) {
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
 			products.findAll({
-<<<<<<< HEAD
-				 
-=======
 				 include: [{model: Images, required:true}]
->>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
 			}).then(function(data){
 				// the query we are looking for in each div
 				console.log(req.session.user);
@@ -137,17 +125,22 @@ module.exports = function(app) {
       res.render('testimonials');
     });
 
-<<<<<<< HEAD
-	app.get('/products/:product', function(req, res) {
+
+	//sets express engin for each product handlebars
+  app.get('/products/:product', function(req, res) {
      var item = req.params.product;
-     console.log(item);
      products.findOne({
            where: {
               product: item
-           }
+           },
+           include: [{model: Images, required:true}]
      }).then(function(data) {
-         console.log('product Data' + data);
-=======
+          console.log('product', data);
+          res.render('product', {
+            product: data
+          });
+     });
+  });
 	 // routes to the cart
   app.get('/add-to-cart/:id', function(req, res) {
   var productId = req.params.id;
@@ -166,34 +159,9 @@ module.exports = function(app) {
          console.log("HERE IS WHAT IN THE session CART", req.session.cart);
          res.redirect('/cart');
      });
-  })
-
-	//sets express engin for each product handlebars
-  app.get('/products/:product', function(req, res) {
-     var item = req.params.product;
-     products.findOne({
-           where: {
-              product: item
-           },
-           include: [{model: Images, required:true}]
-     }).then(function(data) {
-          console.log('product', data);
->>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
-          res.render('product', {
-            product: data
-          });
-     });
-<<<<<<< HEAD
-	});
-=======
-
   });
 
-
-
-
->>>>>>> c944a0a8513b0939e3106fe71ea1eea486ff5e99
-
 	
-};
+
+  }// close exports 
 

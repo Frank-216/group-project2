@@ -15,6 +15,8 @@ var SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // db
 global.db = require('./models');
+var sequelizeConnection = db.sequelize;
+
 // launch app
 var app = express();
 
@@ -29,8 +31,7 @@ app.use(session({
 }));
 
 ///--- sync everything---
-var models  = require('./models');
-var sequelizeConnection = models.sequelize;
+
 
 sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
 
