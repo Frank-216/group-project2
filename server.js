@@ -73,7 +73,7 @@ var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 
 
 //set the port connection. Either heroku or local host 
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 
 
