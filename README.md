@@ -38,7 +38,7 @@ This project motivated the team to enhance its knowledge and skills on full stac
 
 ##API Reference
 
-Google Maps - Places
+Google Maps - Place Searches
 
 ![gmap](https://cloud.githubusercontent.com/assets/18274079/17877444/47cf03ac-68b1-11e6-9e03-491370c70e5a.jpg)
 
