@@ -8,8 +8,6 @@ The Wanderers Essentials is an iconic brand enriching people with its natural-in
 
 ##Code Example
 
-<img width="197" alt="thewanderers" src="https://cloud.githubusercontent.com/assets/18274079/17719882/bde05908-63eb-11e6-8515-2b8e59141347.png">
-
 <img width="400" alt="schema" src="https://cloud.githubusercontent.com/assets/18274079/17719936/1d07e7e8-63ec-11e6-8695-a319075992b5.png">
 
 <img width="500" alt="models" src="https://cloud.githubusercontent.com/assets/18274079/17719950/34debe00-63ec-11e6-8cb7-6a40a6752ccf.png">
@@ -40,7 +38,9 @@ This project motivated the team to enhance its knowledge and skills on full stac
 
 ##API Reference
 
--------------
+Google Maps - Places
+
+![gmap](https://cloud.githubusercontent.com/assets/18274079/17877444/47cf03ac-68b1-11e6-9e03-491370c70e5a.jpg)
 
 
 ##Tests
