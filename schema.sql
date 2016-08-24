@@ -35,6 +35,16 @@ CREATE TABLE products_DB{
 		}
 	}
 	;
-
+-- Manually adding information to the Images Table 
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',curdate(),curdate(), 3);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/peppermintSquare.jpg',curdate(),curdate(), 2);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/bachelorSquare.jpg',curdate(),curdate(), 1);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/sandalwoodbourbonSquare.jpg',curdate(),curdate(), 6);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/beardbalmSquare.jpg',curdate(),curdate(), 4);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/tobaccocandleSquare.jpg',curdate(),curdate(), 7);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/shavesoapsetSquare.jpg',curdate(),curdate(), 8);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/crate.jpg',curdate(),curdate(), 5);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/explorerscrate.jpg',curdate(),curdate(), 9);
+INSERT INTO Images(url, createdAt, updatedAt, ITEMId) VALUES ('https://wanderersessentials.herokuapp.com/img/adventurecrateSquare.jpg',curdate(),curdate(), 10);
 
 sequelize model:create --name Users -- attributes "user_name:string email:string password:string street_name:string city:string state:string zip:string phone_number:string"

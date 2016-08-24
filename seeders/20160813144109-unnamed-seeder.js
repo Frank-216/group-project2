@@ -2,19 +2,26 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-   return queryInterface.bulkInsert('Images', [{
+    /*
+      Add altering commands here.
+      Return a promise to correctly handle asynchronicity.
+      Example:
+      return queryInterface.bulkInsert('Person', [{
+        name: 'John Doe',
+        isBetaMember: false
+      }], {});
+    */
+   return queryInterface.bulkInsert('ImageS', [{
+        url : 'https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',
+        // createdAt: new Date(),
+        // updatedAt: new Date(),
+        ITEMId: 3
+      },{
         url  : 'https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 3
-      },
-      {
-        url  : 'https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        ITEMId : 3
-      },
-      {
+      },{
         url  : 'https://wanderersessentials.herokuapp.com/img/peppermintSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -66,7 +73,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 10
-      }], {});
+      }], 
+   {});
   },
 
   down: function (queryInterface, Sequelize) {

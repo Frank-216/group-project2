@@ -112,7 +112,7 @@ module.exports = function(app) {
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
 			products.findAll({
-				 include: [{model: Images, required:true}]
+				 include: [{model: Images}]
 			}).then(function(data){
 				// the query we are looking for in each div
 				console.log(req.session.user);
