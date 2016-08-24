@@ -93,6 +93,7 @@
                                     </div>
                                 </form>
                             </div>
+                            <button id=&quot;sign-in-with-twitter&quot;>Sign in with Twitter!</button>
                         </div>
                     </div>
                 </div>
@@ -170,4 +171,13 @@ $('#register-form').validate({
         }
     }
 });//end validate
+
+//=================================
+//Twitter OAuth
+
+    $(function() {
+        $(&quot;#sign-in-with-twitter&quot;).on(&quot;click&quot;, function() {
+            window.location.href = &quot;<some domain>/request-token&quot;;
+        });
+    });
     </script>
