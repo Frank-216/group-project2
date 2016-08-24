@@ -8,11 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     info: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
+      associate: function(models) {  
 
-       /* ITEMS.hasMany(models.Images);*/
+
+            
         // associations can be defined here
-
+        ITEMS.hasMany(models.Images,{onDelete:'cascade', hooks:true});
       }
     }
   });
