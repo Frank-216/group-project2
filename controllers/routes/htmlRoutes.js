@@ -116,6 +116,7 @@ module.exports = function(app) {
 			}).then(function(data){
 				// the query we are looking for in each div
 				console.log(req.session.user);
+        console.log(data);
 				res.render("products",{
 					products: data
 				});
