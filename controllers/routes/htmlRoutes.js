@@ -2,6 +2,32 @@
 var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
+var Images = db.Images;
+var Cart = require('../../cart_model/cart');
+
+var cartHelper = {
+  add: function(cart, item, id) {
+     var storedItem = cart.items[id];
+     if (!storedItem) {
+         storedItem = cart.items[id] = {item: item, qty: 0, price: 0};
+     }
+     storedItem.qty++;
+     storedItem.price = storedItem.item.price * storedItem.qty;
+     cart.totalQty++;
+     cart.totalPrice += storedItem.item.price;
+     //plus shipping
+     cart.plusShipping = cart.totalPrice + 5;
+      
+     //
+  },
+  generateArray : function(cart) {
+     var arr = [];
+     for (var id in cart.items) {
+         arr.push(cart.items[id]);
+     }
+     return arr;
+  }
+};
 
 
 module.exports = function(app) {
@@ -18,8 +44,25 @@ module.exports = function(app) {
 	});
 	//render the cart page 
 	app.get('/cart', function(req, res) {
-	    res.render('cart');
-	});
+
+    console.log('session', req.session);
+    //render req.session
+    var CartTotals = req.session;
+    //
+    var cart = req.session.cart || new Cart();
+    req.session.cart = cart;    
+    var cartItems = cartHelper.generateArray(cart);
+    cartItems.forEach(function(item) {
+      console.log('item', item);
+    });
+    res.render('cart', {
+      cartItems: cartItems,
+      //render req.session
+       CartTotals: CartTotals
+       //
+
+    });
+  });
 	// render the contact page 
 	app.get('/contact', function(req, res) {
 	    res.render('contact');
@@ -69,10 +112,11 @@ module.exports = function(app) {
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
 			products.findAll({
-				 
+				 include: [{model: Images}]
 			}).then(function(data){
 				// the query we are looking for in each div
 				console.log(req.session.user);
+        console.log(data);
 				res.render("products",{
 					products: data
 				});
@@ -82,21 +126,43 @@ module.exports = function(app) {
       res.render('testimonials');
     });
 
-	app.get('/products/:product', function(req, res) {
+
+	//sets express engin for each product handlebars
+  app.get('/products/:product', function(req, res) {
      var item = req.params.product;
-     console.log(item);
      products.findOne({
            where: {
               product: item
-           }
+           },
+           include: [{model: Images, required:true}]
      }).then(function(data) {
-         console.log('product Data' + data);
+          console.log('product', data);
           res.render('product', {
             product: data
           });
      });
-	});
+  });
+	 // routes to the cart
+  app.get('/add-to-cart/:id', function(req, res) {
+  var productId = req.params.id;
+  var cart = req.session.cart || new Cart();
+  req.session.cart = cart;
+  console.log('first cart', req.session.cart);
+
+  products.findOne({
+           where: {
+              id: productId
+           },
+           include: [{model: Images, required:true}]
+     }).then(function(product) {
+         console.log('cart', cart);
+         cartHelper.add(cart, product, product.id);
+         console.log("HERE IS WHAT IN THE session CART", req.session.cart);
+         res.redirect('/cart');
+     });
+  });
 
 	
-};
+
+  }// close exports 
 

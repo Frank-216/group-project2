@@ -1,3 +1,4 @@
+
 <div class="col-md-10 col-md-offset-1 text-center">
                 <h2>CART</h2>
 <table class="table table-condensed" style="vertical-align:middle">
@@ -56,3 +57,95 @@
                             </tr>
                 </table>
             </div>
+<!-- <div class="col-md-10 col-lg-10 col-md-offset-1 text-center"> -->
+  <!--               <h2>CART</h2>
+  {{#each cartItems}}
+		{{this.item.product}}
+		{{this.item.price}}
+		{{#each this.item.Images}}
+			<img src="{{this.url}}"/>
+		{{/each}}
+		
+	{{/each}}
+</div> -->
+
+
+
+
+<div class="container">
+  <div class="row content">
+    <div class="col-md-10 col-md-offset-1 text-center">
+
+        <h2>Your Cart</h2>
+        <p>Have a nice day!</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+           {{#each cartItems}}
+              <td><img style="max-height:40px;" src="{{this.item.Images.0.url}}"/></td>
+              <td style="text-align:left;">{{this.item.product}}</td>
+              <td>{{this.item.price}}</td>
+              <td>{{this.qty}}</td>
+              <td>{{this.price}}</td>
+          
+            </tr>
+           {{/each}}  
+          </tbody>
+        </table>
+   </div>
+  </div>
+
+  <div class="row content">
+      <div class="col-md-10 col-md-offset-1 text-center">
+        <h2>Cart Totals</h2>
+        
+        <table class="table">
+
+          <tbody>
+            <tr>
+              <td>Total Items</td>
+              <td>{{CartTotals.cart.totalQty}}</td>
+              
+            </tr>
+            <tr>
+              <td>Cart Subtotal</td>
+              <td>{{CartTotals.cart.totalPrice}}</td>
+              
+            </tr>
+            <tr>
+              <td>Shipping</td>
+              <td>5$ for now</td>
+              
+            </tr>
+            <tr>
+              <td>Order Total</td>
+              <td>{{CartTotals.cart.plusShipping}}</td>
+              
+            </tr>
+            
+          </tbody>
+        </table>
+
+   </div>
+
+</div>
+
+</div>
+<!-- </div> -->
+<!--      <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style> -->
+
+
+
+
