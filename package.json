@@ -28,8 +28,9 @@
     "lodash": "^4.15.0",
     "mysql": "^2.11.1",
     "node-twitter-api": "^1.7.4",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
     "sendgrid": "^4.0.1",
-    "sequelize": "^3.24.1",
     "sequelize": "^3.24.0"
   },
   "devDependencies": {}

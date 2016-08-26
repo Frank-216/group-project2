@@ -8,10 +8,35 @@ var cookieParser = require('cookie-parser')
 var Sequelize = require('sequelize')
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
+//Twitter
+var passport = require('passport');
+var Strategy = require('passport-twitter').Strategy;
 
 
+passport.use(new Strategy({
+    consumerKey: process.env.CONSUMER_KEY || '0DbV9Z1mKw4G285rnjPVYcEhs',
+    consumerSecret: process.env.CONSUMER_SECRET || '1AVJsHc0VupFxre8WZhczY8XsYSodgPqoeQQkxJbd4UnpfciMt',
+    callbackURL: 'http://127.0.0.1:3000/login/twitter/return'
+  },
+  function(token, tokenSecret, profile, cb) {
+    // In this example, the user's Twitter profile is supplied as the user
+    // record.  In a production-quality application, the Twitter profile should
+    // be associated with a user record in the application's database, which
+    // allows for account linking and authentication with other identity
+    // providers.
+  //   return cb(null, profile);
+  }));
 
+// and deserialized.
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
 
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+//==============================================
 
 // db
 global.db = require('./models');
@@ -29,6 +54,11 @@ app.use(session({
     maxAge: 60000 * 60 * 24 * 14
   }
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 ///--- sync everything---
 
@@ -61,6 +91,17 @@ app.use(session({
   }),
   expiration: 180 * 60 * 1000 
 }))
+
+//Twitter ========================================================
+app.get('/login/twitter',
+  passport.authenticate('twitter'));
+
+app.get('/login/twitter/return', 
+  passport.authenticate('twitter', { failureRedirect: '/signin' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+//================================================================
 
 
 
