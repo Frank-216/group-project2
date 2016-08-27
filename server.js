@@ -71,7 +71,7 @@ app.set('view engine', 'handlebars');
 // Set routes 
 var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 
-
+var apiRoutes = require('./controllers/routes/apiRoutes')(app);
 //set the port connection. Either heroku or local host 
 var port = 3000;
 
