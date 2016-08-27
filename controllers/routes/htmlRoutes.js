@@ -73,41 +73,41 @@ module.exports = function(app) {
 	});
 
 	//create a login route to ensure that customers are able to sign in. 
-	app.post('/signin/existing',function (req,res){
-		var cred = req.body;
-		console.log(cred.username);
+	// app.post('/signin/existing',function (req,res){
+	// 	var cred = req.body;
+	// 	console.log(cred.username);
 
-		users.findOne({
-			where:{
-				user_name: cred.username
-			}
-		}).then(function(data){
-			// store user information in local storage
-			console.log(data);
-			req.session.user = data;
-			res.redirect('/products');
+	// 	users.findOne({
+	// 		where:{
+	// 			user_name: cred.username
+	// 		}
+	// 	}).then(function(data){
+	// 		// store user information in local storage
+	// 		console.log(data);
+	// 		req.session.user = data;
+	// 		res.redirect('/products');
 
-		})
-	});
+	// 	})
+	// });
 	// register information 
-	app.post("/signin/new",function(req,res){
-		console.log('post');
-		console.log(req.body);
+	// app.post("/signin/new",function(req,res){
+	// 	console.log('post');
+	// 	console.log(req.body);
 
-		users.create({
-			user_name: req.body.username,
-			email: req.body.email,
-			password: req.body.password,
-			street_name: req.body.address,
+	// 	users.create({
+	// 		user_name: req.body.username,
+	// 		email: req.body.email,
+	// 		password: req.body.password,
+	// 		street_name: req.body.address,
+      
+	// 		// zip:req.body.zipCode
+	// 	}).then(function(data){
+	// 		req.session.user = data;
+	// 		console.log('session user', req.session.user);
+	// 		res.redirect('/products');
+	// 	})
 
-			// zip:req.body.zipCode
-		}).then(function(data){
-			req.session.user = data;
-			console.log('session user', req.session.user);
-			res.redirect('/products');
-		})
-
-	})
+	// })
 	// Display the products page using the find all function to read oru sequelize DB
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
