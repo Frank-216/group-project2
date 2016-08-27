@@ -29,5 +29,9 @@
     "sendgrid": "^4.0.1",
     "sequelize": "^3.24.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nightmare": "^2.5.3"
+  }
 }
