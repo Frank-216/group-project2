@@ -17,15 +17,16 @@ module.exports = function(app) {
       zip:req.body.zipCode
       //sending the newly created user to the client
     }).then(function(dbUser) {
-      console.log(dbUser);
       // res.json(dbUser.dataValues);
-      res.render("products");
+      console.log("path working")
+      res.redirect("/");
       //if there are any errors creating our user, we will gracefully catch the error send the error to the client instead of throwing it (which would crash our server)
     }).catch(function(err) {
       res.json({message: err.message});
     });
   });
 
+// check that a user is signing in correctly.  then redirect to products page 
   app.post('/api/signin', function(req, res) {
   //looking for one user whos password has the email and password submitted
   console.log(req.body.email);
@@ -35,16 +36,18 @@ module.exports = function(app) {
     }
   }).then(function(dbUser) {
     //if no user is found, we'll send back a message saying so
-    console.log(dbUser)
+    console.log(dbUser);
     if (!dbUser) {
       res.json({
         message: "User not found"
       });
     } else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
       //otherwise we'll send back the user
-      res.json(dbUser.dataValues);
+      console.log("path working");
+      res.redirect("/");
     } else {
       //if the password is invalid, we'll let the user know
+      res.render("")
       res.json({
         message: "Invalid Password"
       });
