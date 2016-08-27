@@ -10,7 +10,7 @@
                     <div class="col-md-5 col-md-offset-1">
 
                         {{#each product.Images}}
-                             <img src="{{this.url}}" width="100%">
+                             <img src="{{this.url}}" width="100%"/>
                         {{/each}}
                         
                     </div>
@@ -21,28 +21,34 @@
                         <p>{{product.info}}</p>
                         <p><strong>Materials:</strong> {{product.materials}}</p>
                         <hr>
+                  <!-- add form  -->
+                     <form method="POST" action="/add-to-cart/{{product.id}}">
                         <div class="row text-right">
                             <div class="col-md-6 text-right col-md-offset-1">
-                                <select class="form-control text-right" id="">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
+                                <select name="quantityValue" class="form-control text-right" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <a href="/add-to-cart/{{product.id}}" class="btn" id="addCart">
-                                    <h6>ADD TO CART</h6></a>
+                                <button class="btn" id="addCart" type="submit">
+                                    <h6>ADD TO CART</h6>
                             </div>
                         </div>
+                     </form>
                         <br>
                         <br>
                     </div>
                 </div>
             </div>
+
+
+
