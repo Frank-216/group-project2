@@ -6,19 +6,25 @@ var Images = db.Images;
 var Cart = require('../../cart_model/cart');
 
 var cartHelper = {
-  add: function(cart, item, id) {
+  add: function(cart, item, qty, id) {
      var storedItem = cart.items[id];
+     console.log('storedItem', storedItem);
+     console.log(item, qty, id)
      if (!storedItem) {
-         storedItem = cart.items[id] = {item: item, qty: 0, price: 0};
+         storedItem = cart.items[id] = {item: item, qty: qty, price: 0};
+         storedItem.price = storedItem.item.price * storedItem.qty;
+         cart.totalQty += qty;
+         cart.totalPrice += storedItem.price;
+     } else {
+        storedItem.qty += qty;
+        storedItem.price = storedItem.item.price * storedItem.qty;
+        cart.totalQty += qty;
+        cart.totalPrice += storedItem.item.price * qty;
+
      }
-     storedItem.qty++;
-     storedItem.price = storedItem.item.price * storedItem.qty;
-     cart.totalQty++;
-     cart.totalPrice += storedItem.item.price;
-     //plus shipping
+
      cart.plusShipping = cart.totalPrice + 5;
-      
-     //
+
   },
   generateArray : function(cart) {
      var arr = [];
@@ -53,7 +59,7 @@ module.exports = function(app) {
     req.session.cart = cart;    
     var cartItems = cartHelper.generateArray(cart);
     cartItems.forEach(function(item) {
-      console.log('item', item);
+      console.log('item------------------------------', item);
     });
     res.render('cart', {
       cartItems: cartItems,
@@ -136,13 +142,13 @@ module.exports = function(app) {
            },
            include: [{model: Images, required:true}]
      }).then(function(data) {
-          console.log('product', data);
+          console.log('product***___***___***___***', data);
           res.render('product', {
             product: data
           });
      });
   });
-	 // routes to the cart
+/*	 // routes to the cart
   app.get('/add-to-cart/:id', function(req, res) {
   var productId = req.params.id;
   var cart = req.session.cart || new Cart();
@@ -158,6 +164,29 @@ module.exports = function(app) {
          console.log('cart', cart);
          cartHelper.add(cart, product, product.id);
          console.log("HERE IS WHAT IN THE session CART", req.session.cart);
+         res.redirect('/cart');
+     });
+  });*/
+
+  app.post('/add-to-cart/:id', function(req, res) {
+    console.log("in post secton__________________________________")
+    console.log(req.body)
+    var quantityValue = parseInt(req.body.quantityValue, 10);
+    console.log("order quantity" + quantityValue);
+  var productId = req.params.id;
+  var cart = req.session.cart || new Cart();
+  req.session.cart = cart;
+  console.log('first cart**********************', req.session.cart);
+
+  products.findOne({
+           where: {
+              id: productId
+           },
+           include: [{model: Images, required:true}]
+     }).then(function(product) {
+         console.log('cart', cart);
+         cartHelper.add(cart, product, quantityValue, product.id);
+         console.log("HERE IS WHAT IN THE session CART~~~~~~~~~~~~~~~~~~~~~~~~", req.session.cart);
          res.redirect('/cart');
      });
   });
