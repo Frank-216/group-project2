@@ -13,64 +13,64 @@ module.exports = {
     */
    return queryInterface.bulkInsert('ImageS', [{
         /*url : 'https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',*/
-        url : 'img/tobaccovan.jpg',
+        url : '/img/tobaccovan.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId: 3
       },{
-        url  : 'img/tobaccovanSquare.jpg',
+        url  : '/img/tobaccovanSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 3
       },{
-        url  : 'img/peppermintSquare.jpg',
+        url  : '/img/peppermintSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 2
       },
       {
-        url  : 'img/bachelorSquare.jpg',
+        url  : '/img/bachelorSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 1
       },
       {
-        url  : 'img/sandalwoodbourbonSquare.jpg',
+        url  : '/img/sandalwoodbourbonSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 6
       },
       {
-        url  : 'img/beardbalmSquare.jpg',
+        url  : '/img/beardbalmSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 4
       },
       {
-        url  : 'img/tobaccocandleSquare.jpg',
+        url  : '/img/tobaccocandleSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 7
       },{
-        url  : 'img/shavesoapsetSquare.jpg',
+        url  : '/img/shavesoapsetSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 8
       },
       {
-        url  : 'img/crate.jpg',
+        url  : '/img/crate.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 5
       },
       {
-        url  : 'img/explorerscrate.jpg',
+        url  : '/img/explorerscrate.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 9
       },
       {
-        url  : 'img/adventurecrateSquare.jpg',
+        url  : '/img/adventurecrateSquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 10
