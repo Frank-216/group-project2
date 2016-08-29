@@ -42,6 +42,10 @@ Google Maps - Place Searches
 
 ![gmap](https://cloud.githubusercontent.com/assets/18274079/17877444/47cf03ac-68b1-11e6-9e03-491370c70e5a.jpg)
 
+Twitter OAuth
+
+<img width="400" alt="twitter" src="https://cloud.githubusercontent.com/assets/18274079/18037903/81f92576-6d5c-11e6-9c21-bcd9e6debb1d.png">
+
 
 ##Tests
 
