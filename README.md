@@ -44,7 +44,8 @@ Google Maps - Place Searches
 
 Twitter OAuth
 
-<img width="400" alt="twitter" src="https://cloud.githubusercontent.com/assets/18274079/18037903/81f92576-6d5c-11e6-9c21-bcd9e6debb1d.png">
+<img width="400" alt="tweetoauth" src="https://cloud.githubusercontent.com/assets/18274079/18037974/d3fd6a98-6d5d-11e6-98b3-bf94fca84689.png">
+
 
 
 ##Tests
