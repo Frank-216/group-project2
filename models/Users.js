@@ -4,9 +4,16 @@ module.exports = function(sequelize,DataTypes){
 
 
 	var User = sequelize.define('user', {
-	  user_name: DataTypes.TEXT,
+	  user_name: {
+	  	type: DataTypes.TEXT,
+      allowNull: false,
+      len:[3,10]
+	  },
 	  email: DataTypes.TEXT,
-		password: DataTypes.TEXT,
+		password: {
+			type: DataTypes.TEXT,
+      allowNull: false
+		},
 		street_name: DataTypes.TEXT,
 		city:DataTypes.TEXT,
 		state: DataTypes.TEXT,

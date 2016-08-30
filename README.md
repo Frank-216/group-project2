@@ -40,7 +40,12 @@ This project motivated the team to enhance its knowledge and skills on full stac
 
 Google Maps - Place Searches
 
-![gmap](https://cloud.githubusercontent.com/assets/18274079/17877444/47cf03ac-68b1-11e6-9e03-491370c70e5a.jpg)
+<img width="400" alt="gmaps" src="https://cloud.githubusercontent.com/assets/18274079/18037943/471ee5e8-6d5d-11e6-952c-19dc2a293a10.png">
+
+Twitter OAuth
+
+<img width="400" alt="tweetoauth" src="https://cloud.githubusercontent.com/assets/18274079/18037974/d3fd6a98-6d5d-11e6-98b3-bf94fca84689.png">
+
 
 
 ##Tests
