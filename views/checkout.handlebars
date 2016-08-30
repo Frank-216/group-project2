@@ -1,0 +1,135 @@
+<div id="container">
+ <!-- <div class="col-sm-6 col-md-4 col-md-4 col-md-offset-4 col-sm-offset-3"> -->
+  <div class="row content">
+    <h1>Checkout</h1>
+      <div class="col-md-10 col-md-offset-1 text-center">
+        <h2>Cart Totals</h2>
+        
+        <table class="table">
+
+          <tbody>
+            <tr>
+              <td>Total Items</td>
+              <td>{{CartTotals.cart.totalQty}}</td>
+              
+            </tr>
+            <tr>
+              <td>Cart Subtotal</td>
+              <td>{{CartTotals.cart.totalPrice}}</td>
+              
+            </tr>
+            <tr>
+              <td>Shipping</td>
+              <td>5$ for now</td>
+              
+            </tr>
+            <tr>
+              <td>Order Total</td>
+              <td>{{CartTotals.cart.plusShipping}}</td>
+              
+            </tr>
+            
+          </tbody>
+        </table>
+
+   </div>
+  </div>
+
+
+<!-- error message -->
+<div id="charge-error" class="alert alert-danger {{#if noError}} hidden{{/if}}">
+ {{errMsg}}    
+
+</div>
+<!-- ______________ -->
+
+ <div class="row">            
+    <div class="panel-body">
+
+            <div class="col-lg-8 col-lg-offset-2">
+                <form action="/checkout" method="post" id="checkout-form">
+                   
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="name"></label>
+                          
+                            <input type="text" id="name" class="form-control" placeholder="Name" required name="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="address"></label>
+                            <input type="text" id="address" class="form-control" placeholder="Address" required name="address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="card-name"></label>
+                            <input type="text" id="card-name" class="form-control" placeholder="Card Holder Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="card-number"></label>
+                            <input type="text" id="card-number" class="form-control" placeholder="Credit Card Number" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="card-expiry-month"> </label>
+                            <input type="text" id="card-expiry-month" class="form-control" placeholder="Expiration Month" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="card-expiry-year"></label>
+                            <input type="text" id="card-expiry-year" class="form-control" placeholder="Expiration Year" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                             <div class="form-group">
+                                <label for="card-cvc"></label>
+                            <input type="text" id="card-cvc" class="form-control" placeholder="CVC" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                      
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-5">
+                                <input class="btn btn-send" type="submit"
+                                value="Buy Now">
+                            </div>
+                        </div>
+
+                        <!-- <div class="row">
+                          <div class="col-md-2 col-md-offset-5">
+                            <button type="submit" class="btn btn-success">Buy Now</button>
+                          </div>
+                        </div> -->
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="js/checkout.js"></script>

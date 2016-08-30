@@ -2,6 +2,15 @@
                 <h2>PRODUCTS</h2>
                 <br>
                 <!-- row 1 -->
+                <!-- Success Transaction Message -->
+                  <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+                        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+                        {{successMsg}}   
+                        </div>
+                    </div>   
+                  </div>
+                  <!-- Success Message -->
                 <div class="row">
                     {{#each products}}
                     <div class="col-md-4 text-left productItem" value = "{{this.id}}">
