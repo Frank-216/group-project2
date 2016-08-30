@@ -68,6 +68,11 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 app.use(flash());
+//make session available for hbs
+app.use(function(req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
 // Set routes 
 var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 

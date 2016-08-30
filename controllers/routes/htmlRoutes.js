@@ -42,7 +42,7 @@ module.exports = function(app) {
 
 // render the index page 
 	app.get('/', function(req, res) {
-	    res.render('index');
+    	    res.render('index');
 	});
 	// render the about page 
 	app.get('/about', function(req, res) {
@@ -50,7 +50,7 @@ module.exports = function(app) {
 	});
 	//render the cart page 
 	app.get('/cart', function(req, res) {
-    var successMsg = req.flash('success')[0];
+  
     console.log('session', req.session);
     //render req.session
     var CartTotals = req.session;
@@ -64,9 +64,7 @@ module.exports = function(app) {
     res.render('cart', {
       cartItems: cartItems,
       //render req.session
-      CartTotals: CartTotals,
-      successMsg:successMsg,
-      noMessages: !successMsg
+      CartTotals: CartTotals
 
     });
   });
@@ -118,6 +116,7 @@ module.exports = function(app) {
 	// Display the products page using the find all function to read oru sequelize DB
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
+      var successMsg = req.flash('success')[0];
 			products.findAll({
 				 include: [{model: Images}]
 			}).then(function(data){
@@ -125,7 +124,9 @@ module.exports = function(app) {
 				console.log(req.session.user);
         console.log(data);
 				res.render("products",{
-					products: data
+					products: data,
+          successMsg:successMsg,
+          noMessages: !successMsg
 				});
 			});
 	});
@@ -239,7 +240,7 @@ module.exports = function(app) {
        }
        req.flash('success', 'Successfully bougtht product!');
        req.session.cart = null;
-       res.redirect('/cart');
+       res.redirect('/products');
       });
   })
 
