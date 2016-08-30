@@ -50,7 +50,7 @@ module.exports = function(app) {
 	});
 	//render the cart page 
 	app.get('/cart', function(req, res) {
-
+    var successMsg = req.flash('success')[0];
     console.log('session', req.session);
     //render req.session
     var CartTotals = req.session;
@@ -64,8 +64,9 @@ module.exports = function(app) {
     res.render('cart', {
       cartItems: cartItems,
       //render req.session
-       CartTotals: CartTotals
-       //
+      CartTotals: CartTotals,
+      successMsg:successMsg,
+      noMessages: !successMsg
 
     });
   });
@@ -190,8 +191,57 @@ module.exports = function(app) {
          res.redirect('/cart');
      });
   });
+  
+  //checkout page
+  app.get('/checkout', function(req, res) {
+     if (!req.session.cart) {
+      return res.redirect('/cart');
+    }
+    //render req.session
+    var CartTotals = req.session;
+    //
+    var cart = req.session.cart || new Cart();
+    req.session.cart = cart;    
+    var errMsg = req.flash('error')[0];
+    var cartItems = cartHelper.generateArray(cart);
+    cartItems.forEach(function(item) {
+      console.log('item------------------------------', item);
+    });
+    res.render('checkout', {
+      cartItems: cartItems,
+      //render req.session
+      CartTotals: CartTotals,
+      errMsg: errMsg,
+      noError: !errMsg
+    });
+  });
 
-	
+  app.post('/checkout', function(req, res) {
+    if (!req.session.cart) {
+      return res.redirect('/cart');
+    }
+    /*var cart = new Cart(req.session.cart);*/
+    var cart = req.session.cart || new Cart();
+    req.session.cart = cart;    
+    var stripe = require("stripe")(
+      "sk_test_RP5bVjSS5qmDKNrzNoI1jpxY"
+    );
+
+    stripe.charges.create({
+      amount: req.session.cart.plusShipping * 100,
+      currency: "usd",
+      source: req.body.stripeToken, // obtained with Stripe.js
+      description: "Test Charge"
+    }, function(err, charge) {
+       if (err) {
+          req.flash('error', err.message);
+          return res.redirect('/checkout');
+       }
+       req.flash('success', 'Successfully bougtht product!');
+       req.session.cart = null;
+       res.redirect('/cart');
+      });
+  })
 
   }// close exports 
 

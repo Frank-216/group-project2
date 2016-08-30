@@ -8,8 +8,7 @@ var cookieParser = require('cookie-parser')
 var Sequelize = require('sequelize')
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-
+var flash = require('connect-flash');
 
 
 
@@ -68,6 +67,7 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+app.use(flash());
 // Set routes 
 var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 

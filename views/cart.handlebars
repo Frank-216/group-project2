@@ -73,6 +73,16 @@
 
 
 <div class="container">
+
+  <!-- Success Transaction Message -->
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+        {{successMsg}}   
+        </div>
+    </div>   
+  </div>
+  <!-- Success Message -->
   <div class="row content">
     <div class="col-md-10 col-md-offset-1 text-center">
 
@@ -133,6 +143,8 @@
             
           </tbody>
         </table>
+
+        <a href="/checkout" class="btn btn-success">Chenkout</a>
 
    </div>
 
