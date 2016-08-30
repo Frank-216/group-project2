@@ -32,5 +32,9 @@
     "sequelize": "^3.24.0",
     "stripe": "^4.10.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nightmare": "^2.5.3"
+  }
 }

@@ -14,7 +14,7 @@ module.exports = function(app) {
       email: req.body.email,
       password: hash,
       street_name: req.body.address,
-      zip:req.body.zipCode
+      zip:req.body.zip
       //sending the newly created user to the client
     }).then(function(dbUser) {
       // res.json(dbUser.dataValues);
@@ -41,6 +41,7 @@ module.exports = function(app) {
       res.json({
         message: "User not found"
       });
+
     } else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
       //otherwise we'll send back the user
       console.log("path working");
