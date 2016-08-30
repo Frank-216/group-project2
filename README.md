@@ -46,6 +46,9 @@ Twitter OAuth
 
 <img width="400" alt="tweetoauth" src="https://cloud.githubusercontent.com/assets/18274079/18037974/d3fd6a98-6d5d-11e6-98b3-bf94fca84689.png">
 
+Stripe
+
+<img width="400" alt="stripe" src="https://cloud.githubusercontent.com/assets/18274079/18109386/068b8396-6edf-11e6-9a61-1a24f4595605.png">
 
 
 ##Tests
