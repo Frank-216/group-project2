@@ -3,6 +3,7 @@ var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
 var Images = db.Images;
+var Orders = db.Orders;
 var Cart = require('../../cart_model/cart');
 
 var cartHelper = {
@@ -238,9 +239,24 @@ module.exports = function(app) {
           req.flash('error', err.message);
           return res.redirect('/checkout');
        }
-       req.flash('success', 'Successfully bougtht product!');
+       /*create a new order an save to the database*/
+       var order =  Orders.build({
+         /*user: req.user*/
+         cart: req.session.cart,
+         address: req.body.address,
+         name: req.body.name,
+         paymentID: charge.id
+
+       })
+       order.save().then(function() {
+        req.flash('success', 'Successfully bougtht product!');
+        req.session.cart = null;
+        res.redirect('/products');
+       })
+       /*********/
+       /*req.flash('success', 'Successfully bougtht product!');
        req.session.cart = null;
-       res.redirect('/products');
+       res.redirect('/products');*/
       });
   })
 

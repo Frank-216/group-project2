@@ -17,6 +17,7 @@ module.exports = function(sequelize,DataTypes){
 		classMethods:{
 			associate: function(models) { 
 				User.hasMany(models.ITEMS,{onDelete:'cascade', hooks:true});
+				User.hasMany(models.Orders,{onDelete:'cascade', hooks:true});
 			}
 		}
 	})
