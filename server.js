@@ -1,5 +1,7 @@
 //Call Dependencies
 var express = require('express');
+var app = express();
+require('dotenv').config();
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
@@ -56,18 +58,16 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 //==============================================
-=======
 var flash = require('connect-flash');
->>>>>>> master
 
 
 
 // db
 global.db = require('./models');
-var sequelizeConnection = db.sequelize;
+var connection = new Sequelize(process.env.JAWSDB_URL);
 
 // launch app
-var app = express();
+
 
 app.use(cookieParser())
 app.use(session({
@@ -81,13 +81,12 @@ app.use(session({
 
 ///--- sync everything---
 
-
-sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
+connection.query('SET FOREIGN_KEY_CHECKS = 0')
 
 // make our tables
 // note: force:true drops the table if it already exists---{force: true}
 .then(function(){
-  return sequelizeConnection.sync()
+  return connection.sync()
 });
 //allows access to complete public domain
 app.use(express.static(__dirname + '/public'));
@@ -105,7 +104,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({
-    db: sequelizeConnection
+    db: connection
     // not sure if connection is a property of sequlize
   }),
   expiration: 180 * 60 * 1000 
@@ -114,6 +113,7 @@ app.use(session({
 //Twitter ========================================================
 app.get('/login/twitter',
   passport.authenticate('twitter'));
+
 
 app.get('/login/twitter/return', 
   passport.authenticate('twitter', { failureRedirect: '/signin' }),
@@ -137,12 +137,12 @@ var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 
 var apiRoutes = require('./controllers/routes/apiRoutes')(app);
 //set the port connection. Either heroku or local host 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 
 
 // Launch server  
-db.sequelize.sync().then(function() {
+connection.sync().then(function() {
       app.listen(port, function() {
       console.log("Connected to " + port);
   })
