@@ -60,13 +60,13 @@
 <!-- <div class="col-md-10 col-lg-10 col-md-offset-1 text-center"> -->
   <!--               <h2>CART</h2>
   {{#each cartItems}}
-		{{this.item.product}}
-		{{this.item.price}}
-		{{#each this.item.Images}}
-			<img src="{{this.url}}"/>
-		{{/each}}
-		
-	{{/each}}
+    {{this.item.product}}
+    {{this.item.price}}
+    {{#each this.item.Images}}
+      <img src="{{this.url}}"/>
+    {{/each}}
+    
+  {{/each}}
 </div> -->
 
 
@@ -77,7 +77,7 @@
   <div class="row content">
     <div class="col-md-10 col-md-offset-1 text-center">
 
-        <h2>Your Cart</h2>
+        <h2>YOUR CART</h2>
         <p>Have a nice day!</p>
         <table class="table">
           <thead>
@@ -93,9 +93,9 @@
            {{#each cartItems}}
               <td><img style="max-height:40px;" src="{{this.item.Images.0.url}}"/></td>
               <td style="text-align:left;">{{this.item.product}}</td>
-              <td>{{this.item.price}}</td>
+              <td>${{this.item.price}}</td>
               <td>{{this.qty}}</td>
-              <td>{{this.price}}</td>
+              <td>${{this.price}}</td>
           
             </tr>
            {{/each}}  
@@ -105,12 +105,12 @@
   </div>
 
   <div class="row content">
-      <div class="col-md-10 col-md-offset-1 text-center">
+      <div class="col-md-4 col-md-offset-6 text-center">
         <h2>Cart Totals</h2>
         
         <table class="table">
 
-          <tbody>
+          <tbody class="text-left">
             <tr>
               <td>Total Items</td>
               <td>{{CartTotals.cart.totalQty}}</td>
@@ -118,24 +118,24 @@
             </tr>
             <tr>
               <td>Cart Subtotal</td>
-              <td>{{CartTotals.cart.totalPrice}}</td>
+              <td>${{CartTotals.cart.totalPrice}}</td>
               
             </tr>
             <tr>
               <td>Shipping</td>
-              <td>5$ for now</td>
+              <td>$5</td>
               
             </tr>
             <tr>
               <td>Order Total</td>
-              <td>{{CartTotals.cart.plusShipping}}</td>
+              <td>${{CartTotals.cart.plusShipping}}</td>
               
             </tr>
             
           </tbody>
         </table>
 
-        <a href="/checkout" class="btn btn-success">Chenkout</a>
+        <a href="/checkout" class="btn" style="padding:15px;">Checkout</a>
 
    </div>
 
@@ -148,7 +148,6 @@ table, th, td {
     border: 1px solid black;
 }
 </style> -->
-
 
 
 

@@ -35,7 +35,7 @@ module.exports = {
         ITEMId : 1
       },
       {
-        url  : '/img/sandalwoodbourbonSquare.jpg',
+        url  : ' /img/tobaccovansquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 6
