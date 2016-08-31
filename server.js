@@ -4,8 +4,22 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var methodOverride = require('method-override');
 //import the npm --connect-session-sequelize
-var cookieParser = require('cookie-parser')
-var Sequelize = require('sequelize')
+var cookieParser = require('cookie-parser');
+
+var Sequelize = require('sequelize'),
+    connection;
+if (process.env.JAWSDB_URL) {
+   connection = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  connection = new Sequelize('store_db', 'root', 'password', {
+    host:'localhost',
+    dialect:'mysql',
+    port: '3306'
+  })
+}
+
+
+
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var flash = require('connect-flash');
@@ -78,7 +92,8 @@ var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 
 var apiRoutes = require('./controllers/routes/apiRoutes')(app);
 //set the port connection. Either heroku or local host 
-var port = 3000;
+// process.env.PORT will use the heroku port the heroku provide
+var port = process.env.PORT || 3000;
 
 
 
