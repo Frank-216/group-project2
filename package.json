@@ -20,16 +20,23 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
     "connect-session-sequelize": "^3.1.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
+    "flash": "^1.1.0",
     "mysql": "^2.11.1",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
     "sendgrid": "^4.0.1",
-    "sequelize": "^3.24.0"
+    "sequelize": "^3.24.0",
+    "stripe": "^4.10.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nightmare": "^2.5.3"
+  }
 }

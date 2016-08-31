@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser')
 var Sequelize = require('sequelize')
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
+<<<<<<< HEAD
 //Twitter
 var passport = require('passport');
 var Strategy = require('passport-twitter').Strategy;
@@ -55,6 +56,9 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 //==============================================
+=======
+var flash = require('connect-flash');
+>>>>>>> master
 
 
 
@@ -122,6 +126,12 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+app.use(flash());
+//make session available for hbs
+app.use(function(req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
 // Set routes 
 var htmlRoutes =require('./controllers/routes/htmlRoutes')(app);
 

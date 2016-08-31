@@ -3,6 +3,7 @@ var homeController = require('../home');
 var products = db.ITEMS;
 var users = db.user;
 var Images = db.Images;
+var Orders = db.Orders;
 var Cart = require('../../cart_model/cart');
 
 var cartHelper = {
@@ -42,7 +43,7 @@ module.exports = function(app) {
 
 // render the index page 
 	app.get('/', function(req, res) {
-	    res.render('index');
+    	    res.render('index');
 	});
 	// render the about page 
 	app.get('/about', function(req, res) {
@@ -50,7 +51,7 @@ module.exports = function(app) {
 	});
 	//render the cart page 
 	app.get('/cart', function(req, res) {
-
+  
     console.log('session', req.session);
     //render req.session
     var CartTotals = req.session;
@@ -64,8 +65,7 @@ module.exports = function(app) {
     res.render('cart', {
       cartItems: cartItems,
       //render req.session
-       CartTotals: CartTotals
-       //
+      CartTotals: CartTotals
 
     });
   });
@@ -117,6 +117,7 @@ module.exports = function(app) {
 	// Display the products page using the find all function to read oru sequelize DB
 	app.get('/products', function(req, res) {
 			console.log('session', req.user);
+      var successMsg = req.flash('success')[0];
 			products.findAll({
 				 include: [{model: Images}]
 			}).then(function(data){
@@ -124,7 +125,9 @@ module.exports = function(app) {
 				console.log(req.session.user);
         console.log(data);
 				res.render("products",{
-					products: data
+					products: data,
+          successMsg:successMsg,
+          noMessages: !successMsg
 				});
 			});
 	});
@@ -190,8 +193,72 @@ module.exports = function(app) {
          res.redirect('/cart');
      });
   });
+  
+  //checkout page
+  app.get('/checkout', function(req, res) {
+     if (!req.session.cart) {
+      return res.redirect('/cart');
+    }
+    //render req.session
+    var CartTotals = req.session;
+    //
+    var cart = req.session.cart || new Cart();
+    req.session.cart = cart;    
+    var errMsg = req.flash('error')[0];
+    var cartItems = cartHelper.generateArray(cart);
+    cartItems.forEach(function(item) {
+      console.log('item------------------------------', item);
+    });
+    res.render('checkout', {
+      cartItems: cartItems,
+      //render req.session
+      CartTotals: CartTotals,
+      errMsg: errMsg,
+      noError: !errMsg
+    });
+  });
 
-	
+  app.post('/checkout', function(req, res) {
+    if (!req.session.cart) {
+      return res.redirect('/cart');
+    }
+    /*var cart = new Cart(req.session.cart);*/
+    var cart = req.session.cart || new Cart();
+    req.session.cart = cart;    
+    var stripe = require("stripe")(
+      "sk_test_RP5bVjSS5qmDKNrzNoI1jpxY"
+    );
+
+    stripe.charges.create({
+      amount: req.session.cart.plusShipping * 100,
+      currency: "usd",
+      source: req.body.stripeToken, // obtained with Stripe.js
+      description: "Test Charge"
+    }, function(err, charge) {
+       if (err) {
+          req.flash('error', err.message);
+          return res.redirect('/checkout');
+       }
+       /*create a new order an save to the database*/
+       var order =  Orders.build({
+         /*user: req.user*/
+         cart: req.session.cart,
+         address: req.body.address,
+         name: req.body.name,
+         paymentID: charge.id
+
+       })
+       order.save().then(function() {
+        req.flash('success', 'Successfully bougtht product!');
+        req.session.cart = null;
+        res.redirect('/products');
+       })
+       /*********/
+       /*req.flash('success', 'Successfully bougtht product!');
+       req.session.cart = null;
+       res.redirect('/products');*/
+      });
+  })
 
   }// close exports 
 
