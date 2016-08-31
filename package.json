@@ -26,6 +26,8 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
     "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
     "sendgrid": "^4.0.1",
     "sequelize": "^3.24.0"
   },
