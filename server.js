@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser')
 var Sequelize = require('sequelize')
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
-<<<<<<< HEAD
+
 //Twitter
 var passport = require('passport');
 var Strategy = require('passport-twitter').Strategy;
@@ -35,7 +35,7 @@ var Strategy = require('passport-twitter').Strategy;
 passport.use(new Strategy({
     consumerKey: process.env.CONSUMER_KEY || '5tINHRqLbPF2jdP9a6mwSkFXM',
     consumerSecret: process.env.CONSUMER_SECRET || 'UIK8EiE8qcAwlrniqYpqg6XmJTfOU2PZV1EuyqeSbpuX3FnhwK',
-    callbackURL: 'http://127.0.0.1:3000/login/twitter/return'
+    callbackURL: 'http://secure-hollows-40657.herokuapp.com/login/twitter/return'
   },
   function(token, tokenSecret, profile, cb) {
     // In this example, the user's Twitter profile is supplied as the user
