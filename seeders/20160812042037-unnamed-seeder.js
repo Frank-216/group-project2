@@ -11,7 +11,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-      return queryInterface.bulkInsert('ITEMS', [{
+      return queryInterface.bulkInsert('ITEMs', [{
         id: 1,
         product: 'The Bachelor Goats Milk Soap',
         price: 6.00,
