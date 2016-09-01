@@ -11,7 +11,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-   return queryInterface.bulkInsert('ImageS', [{
+   return queryInterface.bulkInsert('Images', [{
         /*url : 'https://wanderersessentials.herokuapp.com/img/tobaccovanSquare.jpg',*/
         url : '/img/tobaccovan.jpg',
         createdAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
         ITEMId : 1
       },
       {
-        url  : '/img/sandalwoodbourbonSquare.jpg',
+        url  : ' /img/tobaccovansquare.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         ITEMId : 6
