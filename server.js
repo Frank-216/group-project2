@@ -95,8 +95,6 @@ var apiRoutes = require('./controllers/routes/apiRoutes')(app);
 // process.env.PORT will use the heroku port the heroku provide
 var port = process.env.PORT || 3000;
 
-
-
 // Launch server  
 db.sequelize.sync().then(function() {
       app.listen(port, function() {
