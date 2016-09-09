@@ -1,0 +1,29 @@
+<!-- <h2>Customer Orders</h2>
+
+{{#each Orders}}
+
+   <h3>{{this.name}}</h3>
+   <h3>{{this.address}}</h3>
+
+{{/each}}
+ -->
+<div class="col-md-10 col-md-offset-1 text-center">
+                <h2>Customer Orders</h2>
+                <br>
+                {{#each Orders}}
+                 
+
+								   <h3>Customer Name: {{this.name}}</h3>
+								   <h5>Order Date:{{createdAt}}</h5>
+								   <h5>Customer Address: {{this.address}}</h3>
+								   <h5>Payment ID: {{this.paymentID}}</h3>
+								   <br/>
+
+								  
+
+
+								{{/each}}
+
+
+
+</div>

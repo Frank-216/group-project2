@@ -157,7 +157,7 @@ var port = process.env.PORT || 3000;
 
 
 // Launch server  
-connection.sync().then(function() {
+connection.sync({force:true}).then(function() {
       app.listen(port, function() {
       console.log("Connected to " + port);
   })

@@ -260,5 +260,19 @@ module.exports = function(app) {
       });
   })
 
+  //display the user order info 
+  app.get('/customerOrders', function(req, res) {
+     
+      Orders.findAll({
+         
+      }).then(function(data){
+        // the query we are looking for in each div
+        console.log("this is the Customer Orders-----------------------------", data);
+        res.render("customerOrders",{
+          Orders: data
+        });
+      });
+  });
+
   }// close exports 
 
