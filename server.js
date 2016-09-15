@@ -8,17 +8,10 @@ var methodOverride = require('method-override');
 //import the npm --connect-session-sequelize
 var cookieParser = require('cookie-parser');
 
-var Sequelize = require('sequelize'),
-    connection;
-if (process.env.JAWSDB_URL) {
-   connection = new Sequelize(process.env.JAWSDB_URL);
-} else {
-  connection = new Sequelize('store_db', 'root', 'password', {
-    host:'localhost',
-    dialect:'mysql',
-    port: '3306'
-  })
-}
+var Sequelize = require('sequelize');
+
+var models = global.db = require('./models');
+var connection = models.sequelize;
 
 
 
@@ -77,8 +70,7 @@ var flash = require('connect-flash');
 
 
 // db
-global.db = require('./models');
-var connection = new Sequelize(process.env.JAWSDB_URL);
+
 
 // launch app
 
@@ -100,7 +92,7 @@ connection.query('SET FOREIGN_KEY_CHECKS = 0')
 // make our tables
 // note: force:true drops the table if it already exists---{force: true}
 .then(function(){
-  return connection.sync()
+  return connection.sync({})
 });
 //allows access to complete public domain
 app.use(express.static(__dirname + '/public'));
@@ -113,16 +105,16 @@ app.use(bodyParser.urlencoded({
 // configure express for the SequlizeStore
 
 
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  store: new SequelizeStore({
-    db: connection
-    // not sure if connection is a property of sequlize
-  }),
-  expiration: 180 * 60 * 1000 
-}))
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: false,
+//   store: new SequelizeStore({
+//     db: connection
+//     // not sure if connection is a property of sequlize
+//   }),
+//   expiration: 180 * 60 * 1000 
+// }))
 
 //Twitter ========================================================
 app.get('/login/twitter',
@@ -157,11 +149,10 @@ var port = process.env.PORT || 3000;
 
 
 // Launch server  
-connection.sync({}).then(function() {
-      app.listen(port, function() {
-      console.log("Connected to " + port);
-  })
+app.listen(port, function() {
+    console.log("Connected to " + port);
 })
+
 
 
 
